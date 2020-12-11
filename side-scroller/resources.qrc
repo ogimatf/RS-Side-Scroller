@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/img">
+        <file>pozadinica.png</file>
+        <file>nebo.jpg</file>
+    </qresource>
+</RCC>

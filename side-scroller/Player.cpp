@@ -37,7 +37,7 @@ void Player::jump() {
 // Method move player
 void Player::animate() {
     std::cout << "Position: " << pos().x() << "," << pos().y() << "      \r";
-	rect->setPos(pos().x(), pos().y());
+        rect->setPos(pos().x(), pos().y());
 }
 
 // Method moves player from scene when die

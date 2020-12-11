@@ -16,7 +16,7 @@ public:
     QGraphicsRectItem* rect;
 
     void setRunning(bool _runing);
-    virtual std::string name(){ return "Mario";}      
+    virtual std::string name(){ return "Mario";}
     virtual void animate();
     virtual void die();
     void jump();
