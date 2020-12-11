@@ -10,6 +10,6 @@ class LevelManager
     public:
 
         // load all items from the given level in the given scene
-        // returns the Player object
+        // also returns the Player object
         static Player* load(std::string level_name, QGraphicsScene * scene);
 };
