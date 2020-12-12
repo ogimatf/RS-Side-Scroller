@@ -1,4 +1,5 @@
-#pragma once
+#ifndef GAME_H
+#define GAME_H
 
 #include <QGraphicsView>
 #include <QGraphicsScene>
@@ -6,7 +7,7 @@
 
 
 #include "Player.h"
-#include "Levelmanager.h"
+#include "LevelManager.h"
 
 class Game : public QGraphicsView
 {
@@ -16,48 +17,45 @@ class Game : public QGraphicsView
 
     private:
 
-        static Game* uniqueInstance;	// Singleton design pattern
-        Game(QGraphicsView *parent=0);	// Singleton design pattern
+        static Game* uniqueInstance;
+        Game(QGraphicsView *parent=0);
 
-        QGraphicsScene *scene;          // the scene used to render the game (2D)
-        Player *player;                   // player object
-        QTimer engine;                  // game engine / timer
-        game_state cur_state;           // current game state
+        QGraphicsScene *scene;
+        Player *player;
+        QTimer engine;
+        game_state cur_state;
 
 
     protected:
 
-        // the game is controlled using the keyboard
-        // hence we have to intercept all keyboard events
         virtual void keyPressEvent(QKeyEvent *e);
         virtual void keyReleaseEvent(QKeyEvent *e);
 
 
     public:
 
-        // get unique instance
         static Game* instance();
 
-        // getters
         QGraphicsScene* getScene(){return scene;}
 
         void displayMainMenu();
 
     public slots:
 
-        // advance game / next frame
+
         void advance();
 
-        // pause / resume game
+
         void tooglePause();
 
-        // reset game
+
         void reset();
 
-        // start new game
+
         void start();
 
-        // game over
         void gameover();
 
 };
+
+#endif // GAME_H

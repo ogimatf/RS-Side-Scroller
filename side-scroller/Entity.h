@@ -1,46 +1,41 @@
-#pragma once
+#ifndef ENTITY_H
+#define ENTITY_H
 
 #include "Object.h"
 
-// Entity object are "living", i.e. they can move, animate, fall,
-// jump, collide, die, etc.
 class Entity : public Object
 {
     protected:
+        int moving_speed;
 
-        // physics parameters
-        int moving_speed;					// moving speed (pixels/frame)
-
-        int jumping_speed;					// jumping speed (pixels/frame)
-        int jumping_duration;				// jump duration (frames)
+        int jumping_speed;
+        int jumping_duration;
 
         // flags
-        Direction dir;						// the direction of moving
-        bool moving;						// is moving?
-        bool jumping;						// is jumping?
-        bool falling;						// is falling (gravity)?
-        bool collectable;					// entity that Player can collect (e.g. mushrooms, stars, ...)
-        bool dying;							// dying / scheduled for death / death in progress
-        bool dead;							// 100% dead
-        bool freezed;						// cannot temporarily move
+        Direction dir;
+        bool moving;
+        bool jumping;
+        bool falling;
+        bool collectable;
+        bool dying;
+        bool dead;
+        bool freezed;
 
-        // counters
-        int jump_counter;					// counts the number of frames since jump started
-        int death_counter;					// counts the number of frames since death
-        int walk_counter;					// used for walking (main) animation cycle
-        int freeze_counter;					// counts the number of frames since freeze started
 
-        // durations (= limits for counters)
-        int falling_speed;					// falling speed
-        int death_duration;					// death duration (frames) before disappearing
+        int jump_counter;
+        int death_counter;
+        int walk_counter;
+        int freeze_counter;
 
-        int freeze_duration;				// freeze duration (frames) before back to normal state
 
-        // others
-        QPointF prevPos;                    // previous position
-        Object *walkable_object;			// object on which current entity is walking, if any
+        int falling_speed;
+        int death_duration;
 
-        // utility methods
+        int freeze_duration;
+
+        QPointF prevPos;
+        Object *walkable_object;
+
         virtual void startJumping();
         virtual void endJumping();
 
@@ -48,7 +43,6 @@ class Entity : public Object
 
         Entity();
 
-        // getters and setters
         bool isDead(){return dead;}
         bool isDying(){return dying;}
         bool isCollectable() { return collectable;}
@@ -56,15 +50,14 @@ class Entity : public Object
         virtual void setDirection(Direction _dir) { dir = _dir;}
         virtual void setMoving(bool _moving) { if(!dying) moving = _moving;}
 
-        // pure virtual methods to be implemented
         virtual std::string name()     = 0;
         virtual void animate()         = 0;
         virtual void advance();
 
-        // die method, performs common operations to all entities
-        // but it will need be overridden in some cases
+
         virtual void die();
 
-        // freeze method
         virtual void freeze(){ freezed = true;}
 };
+
+#endif // ENTITY_H

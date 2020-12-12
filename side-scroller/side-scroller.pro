@@ -1,8 +1,8 @@
-QT -= gui
-QT += widgets
+QT       += core gui
+
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
-CONFIG -= app_bundle
 
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
@@ -17,28 +17,26 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     Button.cpp \
-    entity.cpp \
-    game.cpp \
-    levelmanager.cpp \
-    main.cpp \
-    object.cpp \
-    player.cpp
+    Entity.cpp \
+    Game.cpp \
+    LevelManager.cpp \
+    Object.cpp \
+    Player.cpp \
+    main.cpp
+
+HEADERS += \
+    Button.h \
+    Entity.h \
+    Game.h \
+    LevelManager.h \
+    Object.h \
+    Player.h \
+    Utils.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-HEADERS += \
-    Button.h \
-    entity.h \
-    game.h \
-    levelmanager.h \
-    object.h \
-    player.h \
-    utils.h
-
-FORMS +=
-
 RESOURCES += \
-    resources.qrc
+    res.qrc

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef LEVELMANAGER_H
+#define LEVELMANAGER_H
 
 #include <QGraphicsScene>
 #include <string>
@@ -8,8 +9,7 @@
 class LevelManager
 {
     public:
-
-        // load all items from the given level in the given scene
-        // also returns the Player object
         static Player* load(std::string level_name, QGraphicsScene * scene);
 };
+
+#endif // LEVELMANAGER_H

@@ -4,34 +4,29 @@
 
 Entity::Entity() : Object()
 {
-    // physics parameters
     moving_speed     = 1;
     jumping_speed    = 2;
     falling_speed    = 2;
 
-    // flags
     dir     = RIGHT;
     moving  = true;
     jumping = false;
-    falling = true;		// we can create entities in mid air and they will fall
+    falling = true;
     dying   = false;
     dead    = false;
     freezed = false;
 
     collectable = false;
 
-    // counters
     jump_counter    = 0;
     death_counter   = 0;
     walk_counter    = 0;
     freeze_counter	= 0;
 
-    // durations
     jumping_duration = 30;
     death_duration   = 100;
     freeze_duration  = 80;
 
-    // others
     walkable_object = 0;
 }
 
@@ -57,9 +52,6 @@ void Entity::endJumping()
 
 void Entity::advance()
 {
-    // NOTE: every movement is embedded in a prevPos = pos() ... solveCollisions() block
-
-    // do nothing if object is freezed
     if(freezed)
     {
         freeze_counter++;
@@ -90,28 +82,19 @@ void Entity::advance()
 
     }
 
-    // jumping
     if(jumping)
     {
         prevPos = pos();
 
-        // move upwards
         setY(y() - jumping_speed);
 
-        // increase jump frame count
         jump_counter += jumping_speed;
 
-        // end jumping when frame count reaches the defined limit
+
         if(jump_counter > jumping_duration)
             endJumping();
     }
 
-    // if the entity is not touching its walkable object anymore
-    // we have to start falling
-    // if(walkable_object && !touchingDirection(walkable_object))
-        // falling = true;
-
-    // falling
     if(falling)
     {
         prevPos = pos();
@@ -120,8 +103,7 @@ void Entity::advance()
 
     }
 
-    // if we fall beyond the scene bottom limit
-    // we have to die (if not dead already)
+
     if(y() > Game::instance()->getScene()->sceneRect().height() - 50 && !dying)
         // die();
     {
@@ -129,9 +111,6 @@ void Entity::advance()
         setY(400);
     }
 
-
-    // if dying, increase death counter
-    // and set dead if counter exceeds death duration
     if(dying)
     {
         death_counter++;
@@ -143,16 +122,14 @@ void Entity::advance()
 
 void Entity::die()
 {
-    // only a full living entity can die
     if(!dying && !dead)
     {
-        // scheduled for death
+
         dying = true;
 
-        // start death counter
+
         death_counter = 0;
 
-        // cannot move
         moving = false;
     }
 }

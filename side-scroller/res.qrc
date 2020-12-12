@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/img">
+    <qresource prefix="/images">
         <file>pozadinica.png</file>
         <file>nebo.jpg</file>
     </qresource>
