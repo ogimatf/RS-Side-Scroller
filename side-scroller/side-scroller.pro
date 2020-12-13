@@ -17,6 +17,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     Block.cpp \
+    Bullet.cpp \
     Button.cpp \
     Entity.cpp \
     Game.cpp \
@@ -28,6 +29,7 @@ SOURCES += \
 
 HEADERS += \
     Block.h \
+    Bullet.h \
     Button.h \
     Entity.h \
     Game.h \
