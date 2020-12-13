@@ -3,7 +3,7 @@
 
 #include <QPen>
 #include <QBrush>
-
+#include <QPixmap>
 #include <iostream>
 
 Player::Player(QPoint position) : Entity() {
@@ -18,7 +18,8 @@ Player::Player(QPoint position) : Entity() {
 
     setZValue(3);
 
-    rect = scene()->addRect(0, 0, 50, 50);
+//    rect = scene()->addPixmap(QPixmap(":/images/megaman.png"));
+    setPixmap(QPixmap(":/images/megaman.png"));
 }
 
 void Player::jump() {
@@ -30,7 +31,7 @@ void Player::jump() {
 
 void Player::animate() {
     std::cout << "Position: " << pos().x() << "," << pos().y() << "      \r";
-        rect->setPos(pos().x(), pos().y());
+    setPos(pos().x(), pos().y());
 }
 
 

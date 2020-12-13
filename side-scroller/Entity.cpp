@@ -1,6 +1,6 @@
 #include "Entity.h"
 #include "Game.h"
-
+#include <QList>
 
 Entity::Entity() : Object()
 {
@@ -32,7 +32,6 @@ Entity::Entity() : Object()
 
 void Entity::startJumping()
 {
-    // entity can jump only when it is not falling
     if(!falling && !jumping)
     {
         walkable_object = 0;
@@ -80,6 +79,8 @@ void Entity::advance()
         else if(dir == DOWN)
             setY(y() + moving_speed);
 
+        solveCollisions();
+
     }
 
     if(jumping)
@@ -93,6 +94,8 @@ void Entity::advance()
 
         if(jump_counter > jumping_duration)
             endJumping();
+
+        solveCollisions();
     }
 
     if(falling)
@@ -101,14 +104,14 @@ void Entity::advance()
 
         setY(y() + falling_speed);
 
+        solveCollisions();
     }
 
-
-    if(y() > Game::instance()->getScene()->sceneRect().height() - 50 && !dying)
+    if(y() > Game::instance()->getScene()->sceneRect().height() - boundingRect().height() && !dying)
         // die();
     {
         falling = false;
-        setY(400);
+        setY(450 - boundingRect().height());
     }
 
     if(dying)
@@ -119,7 +122,46 @@ void Entity::advance()
     }
 }
 
+void Entity::solveCollisions()
+{
+    if(!collidable || dead)
+        return;
 
+
+    QList<QGraphicsItem*> colliding_items = collidingItems();
+
+    bool revert = false;
+
+    for(auto & ci : colliding_items)
+    {
+
+        Object *obj = dynamic_cast<Object*>(ci);
+        if(!obj)
+            continue;
+
+        if( ! obj->isCollidable())
+            continue;
+
+        Direction coll_dir = collisionDirection(obj);
+
+        if(!coll_dir)
+            continue;
+
+        if(coll_dir == DOWN && falling && obj->isWalkable())
+        {
+            falling = false;
+            walkable_object = obj;
+        }
+
+        if(coll_dir == UP && jumping)
+            endJumping();
+
+        revert = true;
+    }
+
+    if(revert)
+        setPos(prevPos);
+}
 void Entity::die()
 {
     if(!dying && !dead)

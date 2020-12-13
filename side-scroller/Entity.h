@@ -56,7 +56,7 @@ class Entity : public Object
 
 
         virtual void die();
-
+        virtual void solveCollisions();
         virtual void freeze(){ freezed = true;}
 };
 

@@ -27,5 +27,8 @@ class Object : public QGraphicsPixmapItem
 
         virtual void advance() = 0;
 
+        virtual void solveCollisions() = 0;
+        virtual Direction collisionDirection(Object* item);
+        virtual Direction touchingDirection(Object* item);
 };
 #endif // OBJECT_H

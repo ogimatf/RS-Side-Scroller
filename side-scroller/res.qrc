@@ -2,5 +2,7 @@
     <qresource prefix="/images">
         <file>pozadinica.png</file>
         <file>nebo.jpg</file>
+        <file>block.png</file>
+        <file>megaman.png</file>
     </qresource>
 </RCC>
