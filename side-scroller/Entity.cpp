@@ -98,6 +98,9 @@ void Entity::advance()
         solveCollisions();
     }
 
+    if(walkable_object && !touchingDirection(walkable_object))
+            falling = true;
+
     if(falling)
     {
         prevPos = pos();

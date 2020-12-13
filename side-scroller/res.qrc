@@ -5,6 +5,7 @@
         <file>block.png</file>
         <file>megaman.png</file>
         <file>level.txt</file>
+        <file>bullet.png</file>
     </qresource>
     <qresource prefix="/txt"/>
 </RCC>

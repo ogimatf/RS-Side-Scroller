@@ -11,6 +11,8 @@
 #include "Entity.h"
 #include "Player.h"
 #include "Button.h"
+
+#include "Bullet.h"
 #include <iostream>
 
 // Singleton design pattern
@@ -142,6 +144,13 @@ void Game::keyPressEvent(QKeyEvent *e)
     if(e->key() == Qt::Key_P){
         std::cout << "Action: Pause           \n\r";
         tooglePause();
+    }
+
+    if(e->key() == Qt::Key_C){
+        std::cout << "Action: Shoot           \n\r";
+        Bullet* bullet = new Bullet();
+        bullet->setPos(player->pos().x() + 40, player->pos().y() + 10);
+        scene->addItem(bullet);
     }
 
     if(e->key() == Qt::Key_Escape)
