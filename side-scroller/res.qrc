@@ -4,5 +4,7 @@
         <file>nebo.jpg</file>
         <file>block.png</file>
         <file>megaman.png</file>
+        <file>level.txt</file>
     </qresource>
+    <qresource prefix="/txt"/>
 </RCC>

@@ -10,6 +10,7 @@ class LevelManager
 {
     public:
         static Player* load(std::string level_name, QGraphicsScene * scene);
+
 };
 
 #endif // LEVELMANAGER_H

@@ -42,8 +42,8 @@ Game::Game(QGraphicsView *parent) : QGraphicsView(parent)
     reset();
 
     // setup window size
-    this->setFixedWidth(800);
-    this->setFixedHeight(450);
+    this->setFixedWidth(840);
+    this->setFixedHeight(420);
 
 
 }
