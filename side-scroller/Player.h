@@ -2,6 +2,7 @@
 #define PLAYER_H
 
 #include "Entity.h"
+#include <QGraphicsPixmapItem>
 
 class Player : public Entity {
 protected:
@@ -14,7 +15,7 @@ public:
     Player(QPoint position);
 
     int x, y;
-    QGraphicsRectItem* rect;
+//    QGraphicsPixmapItem* rect;
 
     void setRunning(bool _runing);
     virtual std::string name(){ return "Mario";}

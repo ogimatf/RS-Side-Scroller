@@ -16,18 +16,22 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    Block.cpp \
     Button.cpp \
     Entity.cpp \
     Game.cpp \
+    Inert.cpp \
     LevelManager.cpp \
     Object.cpp \
     Player.cpp \
     main.cpp
 
 HEADERS += \
+    Block.h \
     Button.h \
     Entity.h \
     Game.h \
+    Inert.h \
     LevelManager.h \
     Object.h \
     Player.h \

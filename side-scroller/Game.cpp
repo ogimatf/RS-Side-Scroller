@@ -45,6 +45,7 @@ Game::Game(QGraphicsView *parent) : QGraphicsView(parent)
     this->setFixedWidth(800);
     this->setFixedHeight(450);
 
+
 }
 
 
