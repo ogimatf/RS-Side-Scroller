@@ -30,7 +30,7 @@ void Player::jump() {
 }
 
 void Player::animate() {
-    std::cout << "Position: " << pos().x() << "," << pos().y() << "      \r";
+    //std::cout << "Position: " << pos().x() << "," << pos().y() << "      \r";
     setPos(pos().x(), pos().y());
 }
 
