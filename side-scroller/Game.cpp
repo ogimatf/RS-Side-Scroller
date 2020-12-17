@@ -33,7 +33,7 @@ Game::Game(QGraphicsView *parent) : QGraphicsView(parent)
     centerOn(0,0);
     setHorizontalScrollBarPolicy ( Qt::ScrollBarAlwaysOff );
     setVerticalScrollBarPolicy ( Qt::ScrollBarAlwaysOff );
-    scene->setSceneRect(0, 0, 10000, 450);
+    scene->setSceneRect(0, 0, 10000, 2304);
 
     // setup game engine
     QObject::connect(&engine, SIGNAL(timeout()), this, SLOT(advance()));
@@ -44,8 +44,8 @@ Game::Game(QGraphicsView *parent) : QGraphicsView(parent)
     reset();
 
     // setup window size
-    this->setFixedWidth(840);
-    this->setFixedHeight(420);
+    this->setFixedWidth(1024);
+    this->setFixedHeight(576);
 
 
 }
