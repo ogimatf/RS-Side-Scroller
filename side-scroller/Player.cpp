@@ -13,13 +13,18 @@ Player::Player(QPoint position) : Entity() {
     x = position.x();
     y = position.y();
 
-    jumping_duration = jump_duration_small;
+    jumping_duration = jump_duration;
     death_duration = 300;
 
     setZValue(3);
 
-//    rect = scene()->addPixmap(QPixmap(":/images/megaman.png"));
-    setPixmap(QPixmap(":/images/megaman.png"));
+    texture_stand   = QPixmap(":/images/megaman_idle.png");
+    texture_jump    = QPixmap(":/images/megaman_jump.png");
+    texture_walk[0] = QPixmap(":/images/megaman_run_01.png");
+    texture_walk[1] = QPixmap(":/images/megaman_run_02.png");
+    texture_walk[2] = QPixmap(":/images/megaman_run_03.png");
+
+    setPixmap(texture_stand);
 }
 
 void Player::jump() {
@@ -30,8 +35,25 @@ void Player::jump() {
 }
 
 void Player::animate() {
-    //std::cout << "Position: " << pos().x() << "," << pos().y() << "      \r";
-    setPos(pos().x(), pos().y());
+
+    if(moving && !jumping && !falling)
+    {
+        setPixmap(texture_walk[(walk_counter++/(running ? running_div : walk_div))%3]);
+    }
+    else if(jumping || falling)
+    {
+            setPixmap(texture_jump);
+    }
+    else
+    {
+        setPixmap(texture_stand);
+    }
+
+
+    if(dir == LEFT)
+    {
+        setPixmap(pixmap().transformed(QTransform().scale(-1,1)));
+    }
 }
 
 

@@ -6,6 +6,11 @@
         <file>megaman.png</file>
         <file>level.txt</file>
         <file>bullet.png</file>
+        <file>megaman_idle.png</file>
+        <file>megaman_jump.png</file>
+        <file>megaman_run_01.png</file>
+        <file>megaman_run_02.png</file>
+        <file>megaman_run_03.png</file>
     </qresource>
     <qresource prefix="/txt"/>
 </RCC>

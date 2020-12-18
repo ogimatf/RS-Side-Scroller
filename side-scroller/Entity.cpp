@@ -4,7 +4,7 @@
 
 Entity::Entity() : Object()
 {
-    moving_speed     = 1;
+    moving_speed     = 3;
     jumping_speed    = 2;
     falling_speed    = 2;
 
