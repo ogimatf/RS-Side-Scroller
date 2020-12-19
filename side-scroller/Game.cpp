@@ -150,21 +150,24 @@ void Game::keyPressEvent(QKeyEvent *e)
 
         Bullet* bullet = new Bullet(player->getDir());
         if(player->getDir() == RIGHT){
-            bullet->setPos(player->pos().x() + player->boundingRect().width() + 5, player->pos().y() + player->boundingRect().height()/3);
+            bullet->setPos(player->pos().x() + player->boundingRect().width() + 15, player->pos().y() + player->boundingRect().height()/3);
         }
         else {
-            bullet->setPos(player->pos().x() - bullet->boundingRect().width() - 5, player->pos().y() + player->boundingRect().height()/3);
+            bullet->setPos(player->pos().x() - bullet->boundingRect().width() - 15, player->pos().y() + player->boundingRect().height()/3);
         }
+        player->setShooting(true);
     }
     if(e->key() == Qt::Key_V){
 
         Rocket* rocket = new Rocket(player->getDir());
         if(player->getDir() == RIGHT){
-            rocket->setPos(player->pos().x() + player->boundingRect().width(), player->pos().y() + player->boundingRect().height()/3);
+            rocket->setPos(player->pos().x() + player->boundingRect().width() + 15, player->pos().y() + player->boundingRect().height()/3);
         }
         else {
-            rocket->setPos(player->pos().x() - rocket->boundingRect().width() - 5, player->pos().y() + player->boundingRect().height()/3);
+            rocket->setPos(player->pos().x() - rocket->boundingRect().width() - 15, player->pos().y() + player->boundingRect().height()/3);
         }
+
+        player->setShooting(true);
     }
 
     if(e->key() == Qt::Key_Escape)
@@ -204,6 +207,16 @@ void Game::keyReleaseEvent(QKeyEvent *e)
 
     if(e->key() == Qt::Key_Z)
         player->setRunning(false);
+
+    if(e->key() == Qt::Key_C)
+    {
+        player->setShooting(false);
+    }
+
+    if(e->key() == Qt::Key_V)
+    {
+        player->setShooting(false);
+    }
 }
 
 void Game::advance()
@@ -249,5 +262,5 @@ void Game::advance()
             }
     }
 
-    centerOn(player);
+    //centerOn(player);
 }

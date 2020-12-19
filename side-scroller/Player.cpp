@@ -18,11 +18,17 @@ Player::Player(QPoint position) : Entity() {
 
     setZValue(3);
 
-    texture_stand   = QPixmap(":/images/megaman_idle.png");
-    texture_jump    = QPixmap(":/images/megaman_jump.png");
-    texture_walk[0] = QPixmap(":/images/megaman_run_01.png");
-    texture_walk[1] = QPixmap(":/images/megaman_run_02.png");
-    texture_walk[2] = QPixmap(":/images/megaman_run_03.png");
+    texture_stand       = QPixmap(":/images/megaman_idle.png");
+    texture_jump        = QPixmap(":/images/megaman_jump.png");
+    texture_walk[0]     = QPixmap(":/images/megaman_run_01.png");
+    texture_walk[1]     = QPixmap(":/images/megaman_run_02.png");
+    texture_walk[2]     = QPixmap(":/images/megaman_run_03.png");
+    texture_stand_shoot = QPixmap(":/images/megaman_idle_shoot.png");
+    texture_jump_shoot  = QPixmap(":/images/megaman_jumpshoot.png");
+    texture_walk_shoot[0]  = QPixmap(":/images/megaman_runshoot_01.png");
+    texture_walk_shoot[1]  = QPixmap(":/images/megaman_runshoot_02.png");
+    texture_walk_shoot[2]  = QPixmap(":/images/megaman_runshoot_03.png");
+
 
     setPixmap(texture_stand);
 }
@@ -36,13 +42,27 @@ void Player::jump() {
 
 void Player::animate() {
 
-    if(moving && !jumping && !falling)
+    std::cout << shooting << std::endl;
+
+    if(moving && !jumping && !falling && !shooting)
     {
         setPixmap(texture_walk[(walk_counter++/(running ? running_div : walk_div))%3]);
     }
-    else if(jumping || falling)
+    else if(moving && !jumping && !falling && shooting)
+    {
+        setPixmap(texture_walk_shoot[(walk_counter++/(running ? running_div : walk_div))%3]);
+    }
+    else if((jumping || falling) && !shooting)
     {
             setPixmap(texture_jump);
+    }
+    else if((jumping || falling) && shooting)
+    {
+        setPixmap(texture_jump_shoot);
+    }
+    else if(shooting)
+    {
+        setPixmap(texture_stand_shoot);
     }
     else
     {

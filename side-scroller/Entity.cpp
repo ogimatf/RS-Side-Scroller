@@ -4,7 +4,7 @@
 
 Entity::Entity() : Object()
 {
-    moving_speed     = 3;
+    moving_speed     = 2;
     jumping_speed    = 2;
     falling_speed    = 2;
 
@@ -15,6 +15,7 @@ Entity::Entity() : Object()
     dying   = false;
     dead    = false;
     freezed = false;
+    shooting = false;
 
     collectable = false;
 

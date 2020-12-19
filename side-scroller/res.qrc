@@ -12,6 +12,15 @@
         <file>megaman_run_02.png</file>
         <file>megaman_run_03.png</file>
         <file>rocket.png</file>
+        <file>megaman_idle_shoot.png</file>
+        <file>megaman_jumpshoot.png</file>
+        <file>megaman_runshoot_01.png</file>
+        <file>megaman_runshoot_02.png</file>
+        <file>megaman_runshoot_03.png</file>
+        <file>megama_death_01.png</file>
+        <file>megama_death_02.png</file>
+        <file>megama_death_03.png</file>
+        <file>megama_death_04.png</file>
     </qresource>
     <qresource prefix="/txt"/>
 </RCC>
