@@ -25,6 +25,8 @@ SOURCES += \
     LevelManager.cpp \
     Object.cpp \
     Player.cpp \
+    Projectile.cpp \
+    Rocket.cpp \
     main.cpp
 
 HEADERS += \
@@ -37,6 +39,8 @@ HEADERS += \
     LevelManager.h \
     Object.h \
     Player.h \
+    Projectile.h \
+    Rocket.h \
     Utils.h
 
 # Default rules for deployment.

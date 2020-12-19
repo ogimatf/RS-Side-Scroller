@@ -11,6 +11,7 @@
         <file>megaman_run_01.png</file>
         <file>megaman_run_02.png</file>
         <file>megaman_run_03.png</file>
+        <file>rocket.png</file>
     </qresource>
     <qresource prefix="/txt"/>
 </RCC>

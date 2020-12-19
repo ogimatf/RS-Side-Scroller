@@ -43,6 +43,7 @@ class Entity : public Object
 
         Entity();
 
+        Direction getDir(){return dir;}
         bool isDead(){return dead;}
         bool isDying(){return dying;}
         bool isCollectable() { return collectable;}

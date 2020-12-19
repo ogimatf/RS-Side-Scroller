@@ -1,22 +1,16 @@
-#include "Bullet.h"
-#include <iostream>
+#include "Rocket.h"
 #include "Game.h"
-#include "Block.h"
-#include <QList>
-
-Bullet::Bullet(Direction dir) : Projectile()
+Rocket::Rocket(Direction dir) : Projectile()
 {
     this->dir = dir;
-    speed = 5;
-    damage = 1;
-    setPixmap(QPixmap(":/images/bullet.png"));
+    speed = 4;
+    damage = 3;
+    setPixmap(QPixmap(":/images/rocket.png"));
+}
+void Rocket::animate(){
 
 }
-void Bullet::animate(){
-
-}
-void Bullet::advance(){
-
+void Rocket::advance(){
     if( dir == LEFT){
          setPos(x() - speed, y());
     }
@@ -25,8 +19,7 @@ void Bullet::advance(){
     }
     solveCollisions();
 }
-
-void Bullet::solveCollisions(){
+void Rocket::solveCollisions(){
     QList<QGraphicsItem*> colliding_items = collidingItems();
     for(auto& ci : colliding_items){
         Object* obj = dynamic_cast<Object*>(ci);

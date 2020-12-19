@@ -13,6 +13,7 @@
 #include "Button.h"
 
 #include "Bullet.h"
+#include "Rocket.h"
 #include <iostream>
 
 // Singleton design pattern
@@ -142,15 +143,28 @@ void Game::keyPressEvent(QKeyEvent *e)
         reset();
 
     if(e->key() == Qt::Key_P){
-        std::cout << "Action: Pause           \n\r";
         tooglePause();
     }
 
     if(e->key() == Qt::Key_C){
-        std::cout << "Action: Shoot           \n\r";
-        Bullet* bullet = new Bullet();
-        bullet->setPos(player->pos().x() + 40, player->pos().y() + 10);
-        scene->addItem(bullet);
+
+        Bullet* bullet = new Bullet(player->getDir());
+        if(player->getDir() == RIGHT){
+            bullet->setPos(player->pos().x() + player->boundingRect().width() + 5, player->pos().y() + player->boundingRect().height()/3);
+        }
+        else {
+            bullet->setPos(player->pos().x() - bullet->boundingRect().width() - 5, player->pos().y() + player->boundingRect().height()/3);
+        }
+    }
+    if(e->key() == Qt::Key_V){
+
+        Rocket* rocket = new Rocket(player->getDir());
+        if(player->getDir() == RIGHT){
+            rocket->setPos(player->pos().x() + player->boundingRect().width(), player->pos().y() + player->boundingRect().height()/3);
+        }
+        else {
+            rocket->setPos(player->pos().x() - rocket->boundingRect().width() - 5, player->pos().y() + player->boundingRect().height()/3);
+        }
     }
 
     if(e->key() == Qt::Key_Escape)
@@ -169,14 +183,12 @@ void Game::keyPressEvent(QKeyEvent *e)
 
     if(e->key() == Qt::Key_Space)
     {
-        std::cout << "Action: Jump           \n\r";
 
         player->jump();
     }
 
     if(e->key() == Qt::Key_Z){
 
-        std::cout << "Action: Run            \n\r";
         player->setRunning(true);
     }
 
@@ -216,19 +228,25 @@ void Game::advance()
     for(auto & item : scene->items())
     {
         Object* obj = dynamic_cast<Object*>(item);
-        if(obj)
-        {
-            obj->animate();
-            obj->advance();
-
-            Entity* entity_obj = dynamic_cast<Entity*>(obj);
-            if(entity_obj && entity_obj->isDead())
+            if(obj)
             {
-                std::cout << entity_obj->name() << std:: endl;
-                scene->removeItem(entity_obj);
-                delete entity_obj;
+                Projectile* projectile_obj = dynamic_cast<Projectile*>(obj);
+                if(projectile_obj){
+                    projectile_obj->animate();
+                    projectile_obj->advance();
+                    continue;
+                }
+
+                obj->animate();
+                obj->advance();
+
+                Entity* entity_obj = dynamic_cast<Entity*>(obj);
+
+                if(entity_obj && entity_obj->isDead()){
+                    scene->removeItem(entity_obj);
+                    delete entity_obj;
+                }
             }
-        }
     }
 
     centerOn(player);
