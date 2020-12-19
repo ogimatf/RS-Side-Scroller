@@ -16,8 +16,10 @@ protected:
     QPixmap texture_stand_shoot;
     QPixmap texture_jump_shoot;
     QPixmap texture_walk_shoot[3];
+    QPixmap texture_dying[4];
 
     bool running;
+    int  death_ind = 0;
 public:
     Player(QPoint position);
 
@@ -27,7 +29,6 @@ public:
     void setRunning(bool _runing);
     virtual std::string name(){ return "Mega Man";}
     virtual void animate();
-    virtual void die();
     void jump();
 };
 

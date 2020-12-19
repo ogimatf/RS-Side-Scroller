@@ -20,7 +20,7 @@ Entity::Entity() : Object()
     collectable = false;
 
     jump_counter    = 0;
-    death_counter   = 0;
+    death_counter   = 1;
     walk_counter    = 0;
     freeze_counter	= 0;
 

@@ -74,10 +74,6 @@ void Game::displayMainMenu()
 
 void Game::reset()
 {
-    QLinearGradient linearGrad(QPointF(100, 100), QPointF(800, 400));
-    linearGrad.setColorAt(0, Qt::blue);
-    linearGrad.setColorAt(1, Qt::white);
-
     cur_state = READY;
     player = 0;
     engine.stop();
@@ -93,7 +89,6 @@ void Game::gameover()
     cur_state = GAME_OVER;
     engine.stop();
 
-    scene->setBackgroundBrush(QBrush(Qt::black));
 
 }
 
@@ -193,6 +188,10 @@ void Game::keyPressEvent(QKeyEvent *e)
     if(e->key() == Qt::Key_Z){
 
         player->setRunning(true);
+    }
+
+    if(e->key() == Qt::Key_D){
+        player->die();
     }
 
 }
