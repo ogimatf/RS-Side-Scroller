@@ -21,7 +21,8 @@ Player* LevelManager::load(std::string level_name, QGraphicsScene * scene)
     if(level_name == "World-1-1")
     {
 
-        scene->setBackgroundBrush(QBrush(QImage(":/images/nebo.jpg")));
+        //scene->setBackgroundBrush(QBrush(QImage(":/images/nebo.jpg")));
+        scene->setBackgroundBrush(QBrush(QColor(31,0,164)));
 
         player = new Player(QPoint(350, 350));
         player->setPos(100, 100);
@@ -51,16 +52,103 @@ Player* LevelManager::load(std::string level_name, QGraphicsScene * scene)
 
             for(auto c : line){
 
-                //std::cout << c.unicode() << std::endl;
-
-                if(c == '#'){
+                if(c == '#')
+                {
 
                     blocks.append(new Block());
+                    blocks.last()->setPixmap(QPixmap(":/images/block_steel_02.png"));
                     blocks.last()->setPos(block_x_coord, block_y_coord);
 
-                    //std::cout << "On udarac, ja blok!" << std::endl;
+                }
+                else if(c == '1')
+                {
+
+                    blocks.append(new Block());
+                    blocks.last()->setPixmap(QPixmap(":/images/block_rock_01.png"));
+                    blocks.last()->setPos(block_x_coord, block_y_coord);
 
                 }
+                else if(c == '2')
+                {
+
+                    blocks.append(new Block());
+                    blocks.last()->setPixmap(QPixmap(":/images/block_rock_02.png"));
+                    blocks.last()->setPos(block_x_coord, block_y_coord);
+
+                }
+                else if(c == '3')
+                {
+
+                    blocks.append(new Block());
+                    blocks.last()->setPixmap(QPixmap(":/images/block_rock_03.png"));
+                    blocks.last()->setPos(block_x_coord, block_y_coord);
+
+                }
+                else if(c == '4')
+                {
+
+                    blocks.append(new Block());
+                    blocks.last()->setPixmap(QPixmap(":/images/block_rock_04.png"));
+                    blocks.last()->setPos(block_x_coord, block_y_coord);
+
+                }
+                else if(c == 'S')
+                {
+
+                    blocks.append(new Block());
+                    blocks.last()->setPixmap(QPixmap(":/images/block_steel_01.png"));
+                    blocks.last()->setPos(block_x_coord, block_y_coord);
+
+                }
+                else if(c == 'T')
+                {
+
+                    blocks.append(new Block());
+                    blocks.last()->setPixmap(QPixmap(":/images/block_steel_02.png"));
+                    blocks.last()->setPos(block_x_coord, block_y_coord);
+
+                }
+                else if(c == 'E')
+                {
+
+                    blocks.append(new Block());
+                    blocks.last()->setPixmap(QPixmap(":/images/block_steel_03.png"));
+                    blocks.last()->setPos(block_x_coord, block_y_coord);
+
+                }
+                else if(c == 'P')
+                {
+
+                    blocks.append(new Block());
+                    blocks.last()->setPixmap(QPixmap(":/images/block_pipe_01.png"));
+                    blocks.last()->setPos(block_x_coord, block_y_coord);
+
+                }
+                else if(c == 'I')
+                {
+
+                    blocks.append(new Block());
+                    blocks.last()->setPixmap(QPixmap(":/images/block_pipe_02.png"));
+                    blocks.last()->setPos(block_x_coord, block_y_coord);
+
+                }
+                else if(c == 'L')
+                {
+
+                    blocks.append(new Block());
+                    blocks.last()->setPixmap(QPixmap(":/images/block_platform.png"));
+                    blocks.last()->setPos(block_x_coord, block_y_coord);
+
+                }
+                else if(c == 'X')
+                {
+
+                    blocks.append(new Block());
+                    blocks.last()->setPixmap(QPixmap(":/images/block_x_01.png"));
+                    blocks.last()->setPos(block_x_coord, block_y_coord);
+
+                }
+
 
                 block_x_coord += block_dim;
             }

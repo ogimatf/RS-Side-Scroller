@@ -34,7 +34,7 @@ Game::Game(QGraphicsView *parent) : QGraphicsView(parent)
     centerOn(0,0);
     setHorizontalScrollBarPolicy ( Qt::ScrollBarAlwaysOff );
     setVerticalScrollBarPolicy ( Qt::ScrollBarAlwaysOff );
-    scene->setSceneRect(0, 0, 10000, 2304);
+    scene->setSceneRect(0, 0, 10000, 5608);
 
     // setup game engine
     QObject::connect(&engine, SIGNAL(timeout()), this, SLOT(advance()));
@@ -261,5 +261,5 @@ void Game::advance()
             }
     }
 
-    //centerOn(player);
+    centerOn(player);
 }
