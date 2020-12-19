@@ -20,6 +20,7 @@ class Entity : public Object
         bool dying;
         bool dead;
         bool freezed;
+        bool shooting;
 
 
         int jump_counter;
@@ -50,6 +51,7 @@ class Entity : public Object
         bool isFalling() {return falling;}
         virtual void setDirection(Direction _dir) { dir = _dir;}
         virtual void setMoving(bool _moving) { if(!dying) moving = _moving;}
+        virtual void setShooting(bool _shooting) { if(!dying) shooting = _shooting;}
 
         virtual std::string name()     = 0;
         virtual void animate()         = 0;

@@ -74,10 +74,6 @@ void Game::displayMainMenu()
 
 void Game::reset()
 {
-    QLinearGradient linearGrad(QPointF(100, 100), QPointF(800, 400));
-    linearGrad.setColorAt(0, Qt::blue);
-    linearGrad.setColorAt(1, Qt::white);
-
     cur_state = READY;
     player = 0;
     engine.stop();
@@ -93,7 +89,6 @@ void Game::gameover()
     cur_state = GAME_OVER;
     engine.stop();
 
-    scene->setBackgroundBrush(QBrush(Qt::black));
 
 }
 
@@ -150,21 +145,24 @@ void Game::keyPressEvent(QKeyEvent *e)
 
         Bullet* bullet = new Bullet(player->getDir());
         if(player->getDir() == RIGHT){
-            bullet->setPos(player->pos().x() + player->boundingRect().width() + 5, player->pos().y() + player->boundingRect().height()/3);
+            bullet->setPos(player->pos().x() + player->boundingRect().width() + 15, player->pos().y() + player->boundingRect().height()/3);
         }
         else {
-            bullet->setPos(player->pos().x() - bullet->boundingRect().width() - 5, player->pos().y() + player->boundingRect().height()/3);
+            bullet->setPos(player->pos().x() - bullet->boundingRect().width() - 15, player->pos().y() + player->boundingRect().height()/3);
         }
+        player->setShooting(true);
     }
     if(e->key() == Qt::Key_V){
 
         Rocket* rocket = new Rocket(player->getDir());
         if(player->getDir() == RIGHT){
-            rocket->setPos(player->pos().x() + player->boundingRect().width(), player->pos().y() + player->boundingRect().height()/3);
+            rocket->setPos(player->pos().x() + player->boundingRect().width() + 15, player->pos().y() + player->boundingRect().height()/3);
         }
         else {
-            rocket->setPos(player->pos().x() - rocket->boundingRect().width() - 5, player->pos().y() + player->boundingRect().height()/3);
+            rocket->setPos(player->pos().x() - rocket->boundingRect().width() - 15, player->pos().y() + player->boundingRect().height()/3);
         }
+
+        player->setShooting(true);
     }
 
     if(e->key() == Qt::Key_Escape)
@@ -192,6 +190,10 @@ void Game::keyPressEvent(QKeyEvent *e)
         player->setRunning(true);
     }
 
+    if(e->key() == Qt::Key_D){
+        player->die();
+    }
+
 }
 
 void Game::keyReleaseEvent(QKeyEvent *e)
@@ -204,6 +206,16 @@ void Game::keyReleaseEvent(QKeyEvent *e)
 
     if(e->key() == Qt::Key_Z)
         player->setRunning(false);
+
+    if(e->key() == Qt::Key_C)
+    {
+        player->setShooting(false);
+    }
+
+    if(e->key() == Qt::Key_V)
+    {
+        player->setShooting(false);
+    }
 }
 
 void Game::advance()
@@ -249,5 +261,5 @@ void Game::advance()
             }
     }
 
-    centerOn(player);
+    //centerOn(player);
 }
