@@ -1,39 +1,38 @@
 <RCC>
     <qresource prefix="/images">
-        <file>pozadinica.png</file>
-        <file>nebo.jpg</file>
-        <file>block.png</file>
-        <file>megaman.png</file>
-        <file>level.txt</file>
-        <file>bullet.png</file>
-        <file>megaman_idle.png</file>
-        <file>megaman_jump.png</file>
-        <file>megaman_run_01.png</file>
-        <file>megaman_run_02.png</file>
-        <file>megaman_run_03.png</file>
-        <file>rocket.png</file>
-        <file>megaman_idle_shoot.png</file>
-        <file>megaman_jumpshoot.png</file>
-        <file>megaman_runshoot_01.png</file>
-        <file>megaman_runshoot_02.png</file>
-        <file>megaman_runshoot_03.png</file>
-        <file>megaman_death_01.png</file>
-        <file>megaman_death_02.png</file>
-        <file>megaman_death_03.png</file>
-        <file>megaman_death_04.png</file>
-        <file>block_pipe_01.png</file>
-        <file>block_pipe_02.png</file>
-        <file>block_platform.png</file>
-        <file>block_rock_01.png</file>
-        <file>block_rock_02.png</file>
-        <file>block_rock_03.png</file>
-        <file>block_rock_04.png</file>
-        <file>block_steel_01.png</file>
-        <file>block_steel_02.png</file>
-        <file>block_steel_03.png</file>
-        <file>block_x_01.png</file>
-        <file>pickman_01.png</file>
-        <file>sniperjoe_01.png</file>
+        <file>Textures/block_pipe_01.png</file>
+        <file>Textures/block_pipe_02.png</file>
+        <file>Textures/block_platform.png</file>
+        <file>Textures/block_rock_01.png</file>
+        <file>Textures/block_rock_02.png</file>
+        <file>Textures/block_rock_03.png</file>
+        <file>Textures/block_rock_04.png</file>
+        <file>Textures/block_steel_01.png</file>
+        <file>Textures/block_steel_02.png</file>
+        <file>Textures/block_steel_03.png</file>
+        <file>Textures/block_x_01.png</file>
+        <file>Textures/bullet.png</file>
+        <file>Textures/megaman_death_01.png</file>
+        <file>Textures/megaman_death_02.png</file>
+        <file>Textures/megaman_death_03.png</file>
+        <file>Textures/megaman_death_04.png</file>
+        <file>Textures/megaman_idle.png</file>
+        <file>Textures/megaman_idle_shoot.png</file>
+        <file>Textures/megaman_jump.png</file>
+        <file>Textures/megaman_jumpshoot.png</file>
+        <file>Textures/megaman_run_01.png</file>
+        <file>Textures/megaman_run_02.png</file>
+        <file>Textures/megaman_run_03.png</file>
+        <file>Textures/megaman_runshoot_01.png</file>
+        <file>Textures/megaman_runshoot_02.png</file>
+        <file>Textures/megaman_runshoot_03.png</file>
+        <file>Textures/pickman_01.png</file>
+        <file>Textures/pozadinica.png</file>
+        <file>Textures/rocket.png</file>
+        <file>Textures/sniperjoe_01.png</file>
     </qresource>
-    <qresource prefix="/txt"/>
+    <qresource prefix="/txt">
+        <file>Levels/level.txt</file>
+    </qresource>
+    <qresource prefix="/audio"/>
 </RCC>

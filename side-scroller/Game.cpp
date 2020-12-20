@@ -54,7 +54,7 @@ Game::Game(QGraphicsView *parent) : QGraphicsView(parent)
 
 void Game::displayMainMenu()
 {
-    scene->setBackgroundBrush(QBrush(QImage(":/images/pozadinica.png")));
+    scene->setBackgroundBrush(QBrush(QImage(":/images/Textures/pozadinica.png")));
 
     Button* playButton = new Button(QString("PLAY"));
     int bxPos = this->width()/2 - playButton->boundingRect().width()/2 - 50;
