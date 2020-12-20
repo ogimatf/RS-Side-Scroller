@@ -1,10 +1,11 @@
 #include "Entity.h"
 #include "Game.h"
+#include "Enemy.h"
 #include <QList>
 
 Entity::Entity() : Object()
 {
-    moving_speed     = 1;
+    moving_speed     = 2;
     jumping_speed    = 2;
     falling_speed    = 2;
 
@@ -15,11 +16,12 @@ Entity::Entity() : Object()
     dying   = false;
     dead    = false;
     freezed = false;
+    shooting = false;
 
     collectable = false;
 
     jump_counter    = 0;
-    death_counter   = 0;
+    death_counter   = 1;
     walk_counter    = 0;
     freeze_counter	= 0;
 
@@ -61,6 +63,17 @@ void Entity::advance()
         }
         else
             return;
+    }
+
+    Enemy* enemy_obj = dynamic_cast<Enemy*>(this);
+    if(enemy_obj && !(enemy_obj->isDead())){
+
+        enemy_obj->enemy_shooting_interval++;
+
+        if(enemy_obj->enemy_shooting_interval > 100){
+            enemy_obj->enemy_shooting_interval = 0;
+            enemy_obj->enemyShoot();
+        }
     }
 
     // moving

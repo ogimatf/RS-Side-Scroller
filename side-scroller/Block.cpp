@@ -3,7 +3,8 @@
 
 Block::Block() : Inert()
 {
-    setPixmap(QPixmap(":/images/block.png"));
+    setShapeMode(QGraphicsPixmapItem::MaskShape);
+    setPixmap(QPixmap(":/images/block_steel_02.png"));
 }
 
 void Block::hit(Object *what, Direction fromDir)

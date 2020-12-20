@@ -19,24 +19,34 @@ SOURCES += \
     Block.cpp \
     Bullet.cpp \
     Button.cpp \
+    Enemy.cpp \
+    EnemyPickman.cpp \
+    EnemySniperJoe.cpp \
     Entity.cpp \
     Game.cpp \
     Inert.cpp \
     LevelManager.cpp \
     Object.cpp \
     Player.cpp \
+    Projectile.cpp \
+    Rocket.cpp \
     main.cpp
 
 HEADERS += \
     Block.h \
     Bullet.h \
     Button.h \
+    Enemy.h \
+    EnemyPickman.h \
+    EnemySniperJoe.h \
     Entity.h \
     Game.h \
     Inert.h \
     LevelManager.h \
     Object.h \
     Player.h \
+    Projectile.h \
+    Rocket.h \
     Utils.h
 
 # Default rules for deployment.

@@ -1,20 +1,20 @@
 #ifndef BULLET_H
 #define BULLET_H
 
-#include <QObject>
-#include "Object.h"
-#include <QGraphicsPixmapItem>
+#include "Projectile.h"
 
-class Bullet: public QObject, public QGraphicsPixmapItem
+class Bullet: public Projectile
 {
-    Q_OBJECT
+
 public:
-    Bullet();
+    Bullet(Direction dir);
+
+    virtual std::string name(){return "Bullet";}
 
 
-public slots:
-    void move_bullet();
+    virtual void animate();
 
+    virtual void advance();
 };
 
 #endif // BULLET_H

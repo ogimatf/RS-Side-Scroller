@@ -13,6 +13,7 @@
 #include "Button.h"
 
 #include "Bullet.h"
+#include "Rocket.h"
 #include <iostream>
 
 // Singleton design pattern
@@ -33,7 +34,7 @@ Game::Game(QGraphicsView *parent) : QGraphicsView(parent)
     centerOn(0,0);
     setHorizontalScrollBarPolicy ( Qt::ScrollBarAlwaysOff );
     setVerticalScrollBarPolicy ( Qt::ScrollBarAlwaysOff );
-    scene->setSceneRect(0, 0, 10000, 2304);
+    scene->setSceneRect(0, 0, 10000, 5608);
 
     // setup game engine
     QObject::connect(&engine, SIGNAL(timeout()), this, SLOT(advance()));
@@ -73,10 +74,6 @@ void Game::displayMainMenu()
 
 void Game::reset()
 {
-    QLinearGradient linearGrad(QPointF(100, 100), QPointF(800, 400));
-    linearGrad.setColorAt(0, Qt::blue);
-    linearGrad.setColorAt(1, Qt::white);
-
     cur_state = READY;
     player = 0;
     engine.stop();
@@ -92,7 +89,6 @@ void Game::gameover()
     cur_state = GAME_OVER;
     engine.stop();
 
-    scene->setBackgroundBrush(QBrush(Qt::black));
 
 }
 
@@ -142,15 +138,31 @@ void Game::keyPressEvent(QKeyEvent *e)
         reset();
 
     if(e->key() == Qt::Key_P){
-        std::cout << "Action: Pause           \n\r";
         tooglePause();
     }
 
     if(e->key() == Qt::Key_C){
-        std::cout << "Action: Shoot           \n\r";
-        Bullet* bullet = new Bullet();
-        bullet->setPos(player->pos().x() + 40, player->pos().y() + 10);
-        scene->addItem(bullet);
+
+        Bullet* bullet = new Bullet(player->getDir());
+        if(player->getDir() == RIGHT){
+            bullet->setPos(player->pos().x() + player->boundingRect().width() + 15, player->pos().y() + player->boundingRect().height()/3);
+        }
+        else {
+            bullet->setPos(player->pos().x() - bullet->boundingRect().width() - 15, player->pos().y() + player->boundingRect().height()/3);
+        }
+        player->setShooting(true);
+    }
+    if(e->key() == Qt::Key_V){
+
+        Rocket* rocket = new Rocket(player->getDir());
+        if(player->getDir() == RIGHT){
+            rocket->setPos(player->pos().x() + player->boundingRect().width() + 15, player->pos().y() + player->boundingRect().height()/3);
+        }
+        else {
+            rocket->setPos(player->pos().x() - rocket->boundingRect().width() - 15, player->pos().y() + player->boundingRect().height()/3);
+        }
+
+        player->setShooting(true);
     }
 
     if(e->key() == Qt::Key_Escape)
@@ -169,15 +181,17 @@ void Game::keyPressEvent(QKeyEvent *e)
 
     if(e->key() == Qt::Key_Space)
     {
-        std::cout << "Action: Jump           \n\r";
 
         player->jump();
     }
 
     if(e->key() == Qt::Key_Z){
 
-        std::cout << "Action: Run            \n\r";
         player->setRunning(true);
+    }
+
+    if(e->key() == Qt::Key_D){
+        player->die();
     }
 
 }
@@ -192,6 +206,16 @@ void Game::keyReleaseEvent(QKeyEvent *e)
 
     if(e->key() == Qt::Key_Z)
         player->setRunning(false);
+
+    if(e->key() == Qt::Key_C)
+    {
+        player->setShooting(false);
+    }
+
+    if(e->key() == Qt::Key_V)
+    {
+        player->setShooting(false);
+    }
 }
 
 void Game::advance()
@@ -216,19 +240,25 @@ void Game::advance()
     for(auto & item : scene->items())
     {
         Object* obj = dynamic_cast<Object*>(item);
-        if(obj)
-        {
-            obj->animate();
-            obj->advance();
-
-            Entity* entity_obj = dynamic_cast<Entity*>(obj);
-            if(entity_obj && entity_obj->isDead())
+            if(obj)
             {
-                std::cout << entity_obj->name() << std:: endl;
-                scene->removeItem(entity_obj);
-                delete entity_obj;
+                Projectile* projectile_obj = dynamic_cast<Projectile*>(obj);
+                if(projectile_obj){
+                    projectile_obj->animate();
+                    projectile_obj->advance();
+                    continue;
+                }
+
+                obj->animate();
+                obj->advance();
+
+                Entity* entity_obj = dynamic_cast<Entity*>(obj);
+
+                if(entity_obj && entity_obj->isDead()){
+                    scene->removeItem(entity_obj);
+                    delete entity_obj;
+                }
             }
-        }
     }
 
     centerOn(player);
