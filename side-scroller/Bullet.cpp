@@ -2,6 +2,7 @@
 #include <iostream>
 #include "Game.h"
 #include "Block.h"
+#include "Enemy.h"
 #include <QList>
 
 Bullet::Bullet(Direction dir) : Projectile()
@@ -26,18 +27,4 @@ void Bullet::advance(){
     solveCollisions();
 }
 
-void Bullet::solveCollisions(){
-    QList<QGraphicsItem*> colliding_items = collidingItems();
-    for(auto& ci : colliding_items){
-        Object* obj = dynamic_cast<Object*>(ci);
-        if(!obj)
-            continue;
-        if(!obj->isCollidable()){
-            continue;
-        }
-        scene()->removeItem(this);
-        delete this;
-        break;
-    }
-}
 

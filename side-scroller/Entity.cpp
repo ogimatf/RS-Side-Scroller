@@ -1,5 +1,6 @@
 #include "Entity.h"
 #include "Game.h"
+#include "Enemy.h"
 #include <QList>
 
 Entity::Entity() : Object()
@@ -62,6 +63,17 @@ void Entity::advance()
         }
         else
             return;
+    }
+
+    Enemy* enemy_obj = dynamic_cast<Enemy*>(this);
+    if(enemy_obj && !(enemy_obj->isDead())){
+
+        enemy_obj->enemy_shooting_interval++;
+
+        if(enemy_obj->enemy_shooting_interval > 100){
+            enemy_obj->enemy_shooting_interval = 0;
+            enemy_obj->enemyShoot();
+        }
     }
 
     // moving

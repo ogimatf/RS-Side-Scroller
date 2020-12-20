@@ -32,6 +32,8 @@
         <file>block_steel_02.png</file>
         <file>block_steel_03.png</file>
         <file>block_x_01.png</file>
+        <file>pickman_01.png</file>
+        <file>sniperjoe_01.png</file>
     </qresource>
     <qresource prefix="/txt"/>
 </RCC>

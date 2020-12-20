@@ -1,5 +1,6 @@
 #include "Rocket.h"
 #include "Game.h"
+#include "Enemy.h"
 Rocket::Rocket(Direction dir) : Projectile()
 {
     this->dir = dir;
@@ -19,18 +20,5 @@ void Rocket::advance(){
     }
     solveCollisions();
 }
-void Rocket::solveCollisions(){
-    QList<QGraphicsItem*> colliding_items = collidingItems();
-    for(auto& ci : colliding_items){
-        Object* obj = dynamic_cast<Object*>(ci);
-        if(!obj)
-            continue;
-        if(!obj->isCollidable()){
-            continue;
-        }
-        scene()->removeItem(this);
-        delete this;
-        break;
-    }
-}
+
 

@@ -18,7 +18,7 @@ public:
 
     virtual void advance() = 0;
 
-    virtual void solveCollisions() = 0;
+    virtual void solveCollisions();
 };
 
 #endif // PROJECTILE_H

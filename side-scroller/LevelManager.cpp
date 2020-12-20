@@ -8,6 +8,10 @@
 #include <QGradient>
 
 #include "Player.h"
+#include "Enemy.h"
+#include "EnemyPickman.h"
+#include "EnemySniperJoe.h"
+
 #include "LevelManager.h"
 #include "Block.h"
 #include <iostream>
@@ -44,6 +48,8 @@ Player* LevelManager::load(std::string level_name, QGraphicsScene * scene)
         delete block;
 
         QList<Block *> blocks;
+        QList<Enemy *> enemies;
+
 
 
         while(!in.atEnd()){
@@ -126,7 +132,6 @@ Player* LevelManager::load(std::string level_name, QGraphicsScene * scene)
                 }
                 else if(c == 'I')
                 {
-
                     blocks.append(new Block());
                     blocks.last()->setPixmap(QPixmap(":/images/block_pipe_02.png"));
                     blocks.last()->setPos(block_x_coord, block_y_coord);
@@ -148,6 +153,15 @@ Player* LevelManager::load(std::string level_name, QGraphicsScene * scene)
                     blocks.last()->setPos(block_x_coord, block_y_coord);
 
                 }
+                else if(c == 'Q'){
+                    enemies.append(new EnemyPickman());
+                    enemies.last()->setPos(block_x_coord, block_y_coord - enemies.last()->boundingRect().height());
+                }
+                else if(c == 'R'){
+                    enemies.append(new EnemySniperJoe());
+                    enemies.last()->setPos(block_x_coord, block_y_coord - enemies.last()->boundingRect().height());
+                }
+
 
 
                 block_x_coord += block_dim;

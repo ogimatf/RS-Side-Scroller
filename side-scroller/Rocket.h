@@ -15,8 +15,6 @@ public:
     virtual void animate();
 
     virtual void advance();
-
-    virtual void solveCollisions();
 };
 
 
