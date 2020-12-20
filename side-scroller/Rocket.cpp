@@ -6,7 +6,7 @@ Rocket::Rocket(Direction dir) : Projectile()
     this->dir = dir;
     speed = 4;
     damage = 3;
-    setPixmap(QPixmap(":/images/rocket.png"));
+    setPixmap(QPixmap(":/images/Textures/rocket.png"));
 }
 void Rocket::animate(){
 

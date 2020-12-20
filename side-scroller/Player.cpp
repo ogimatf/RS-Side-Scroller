@@ -18,20 +18,20 @@ Player::Player(QPoint position) : Entity() {
 
     setZValue(3);
 
-    texture_stand          = QPixmap(":/images/megaman_idle.png");
-    texture_jump           = QPixmap(":/images/megaman_jump.png");
-    texture_walk[0]        = QPixmap(":/images/megaman_run_01.png");
-    texture_walk[1]        = QPixmap(":/images/megaman_run_02.png");
-    texture_walk[2]        = QPixmap(":/images/megaman_run_03.png");
-    texture_stand_shoot    = QPixmap(":/images/megaman_idle_shoot.png");
-    texture_jump_shoot     = QPixmap(":/images/megaman_jumpshoot.png");
-    texture_walk_shoot[0]  = QPixmap(":/images/megaman_runshoot_01.png");
-    texture_walk_shoot[1]  = QPixmap(":/images/megaman_runshoot_02.png");
-    texture_walk_shoot[2]  = QPixmap(":/images/megaman_runshoot_03.png");
-    texture_dying[0]       = QPixmap(":/images/megaman_death_01.png");
-    texture_dying[1]       = QPixmap(":/images/megaman_death_02.png");
-    texture_dying[2]       = QPixmap(":/images/megaman_death_03.png");
-    texture_dying[3]       = QPixmap(":/images/megaman_death_04.png");
+    texture_stand          = QPixmap(":/images/Textures/megaman_idle.png");
+    texture_jump           = QPixmap(":/images/Textures/megaman_jump.png");
+    texture_walk[0]        = QPixmap(":/images/Textures/megaman_run_01.png");
+    texture_walk[1]        = QPixmap(":/images/Textures/megaman_run_02.png");
+    texture_walk[2]        = QPixmap(":/images/Textures/megaman_run_03.png");
+    texture_stand_shoot    = QPixmap(":/images/Textures/megaman_idle_shoot.png");
+    texture_jump_shoot     = QPixmap(":/images/Textures/megaman_jumpshoot.png");
+    texture_walk_shoot[0]  = QPixmap(":/images/Textures/megaman_runshoot_01.png");
+    texture_walk_shoot[1]  = QPixmap(":/images/Textures/megaman_runshoot_02.png");
+    texture_walk_shoot[2]  = QPixmap(":/images/Textures/megaman_runshoot_03.png");
+    texture_dying[0]       = QPixmap(":/images/Textures/megaman_death_01.png");
+    texture_dying[1]       = QPixmap(":/images/Textures/megaman_death_02.png");
+    texture_dying[2]       = QPixmap(":/images/Textures/megaman_death_03.png");
+    texture_dying[3]       = QPixmap(":/images/Textures/megaman_death_04.png");
 
 
 
