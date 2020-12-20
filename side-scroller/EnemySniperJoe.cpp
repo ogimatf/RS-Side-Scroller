@@ -3,7 +3,7 @@
 EnemySniperJoe::EnemySniperJoe() : Enemy()
 {
     health = 10;
-    setPixmap(QPixmap(":/images/sniperjoe_01.png"));
+    setPixmap(QPixmap(":/images/Textures/sniperjoe_01.png"));
 }
 void EnemySniperJoe::animate(){
 

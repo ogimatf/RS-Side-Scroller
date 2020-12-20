@@ -31,7 +31,7 @@ Player* LevelManager::load(std::string level_name, QGraphicsScene * scene)
         player = new Player(QPoint(350, 350));
         player->setPos(100, 100);
 
-        QFile myfile(":/images/level.txt");
+        QFile myfile(":/txt/Levels/level.txt");
 
         if(!myfile.open(QIODevice::ReadOnly | QIODevice::Text))
             std::cerr << "File not open";
@@ -62,7 +62,7 @@ Player* LevelManager::load(std::string level_name, QGraphicsScene * scene)
                 {
 
                     blocks.append(new Block());
-                    blocks.last()->setPixmap(QPixmap(":/images/block_steel_02.png"));
+                    blocks.last()->setPixmap(QPixmap(":/images/Textures/block_steel_02.png"));
                     blocks.last()->setPos(block_x_coord, block_y_coord);
 
                 }
@@ -70,7 +70,7 @@ Player* LevelManager::load(std::string level_name, QGraphicsScene * scene)
                 {
 
                     blocks.append(new Block());
-                    blocks.last()->setPixmap(QPixmap(":/images/block_rock_01.png"));
+                    blocks.last()->setPixmap(QPixmap(":/images/Textures/block_rock_01.png"));
                     blocks.last()->setPos(block_x_coord, block_y_coord);
 
                 }
@@ -78,7 +78,7 @@ Player* LevelManager::load(std::string level_name, QGraphicsScene * scene)
                 {
 
                     blocks.append(new Block());
-                    blocks.last()->setPixmap(QPixmap(":/images/block_rock_02.png"));
+                    blocks.last()->setPixmap(QPixmap(":/images/Textures/block_rock_02.png"));
                     blocks.last()->setPos(block_x_coord, block_y_coord);
 
                 }
@@ -86,7 +86,7 @@ Player* LevelManager::load(std::string level_name, QGraphicsScene * scene)
                 {
 
                     blocks.append(new Block());
-                    blocks.last()->setPixmap(QPixmap(":/images/block_rock_03.png"));
+                    blocks.last()->setPixmap(QPixmap(":/images/Textures/block_rock_03.png"));
                     blocks.last()->setPos(block_x_coord, block_y_coord);
 
                 }
@@ -94,7 +94,7 @@ Player* LevelManager::load(std::string level_name, QGraphicsScene * scene)
                 {
 
                     blocks.append(new Block());
-                    blocks.last()->setPixmap(QPixmap(":/images/block_rock_04.png"));
+                    blocks.last()->setPixmap(QPixmap(":/images/Textures/block_rock_04.png"));
                     blocks.last()->setPos(block_x_coord, block_y_coord);
 
                 }
@@ -102,7 +102,7 @@ Player* LevelManager::load(std::string level_name, QGraphicsScene * scene)
                 {
 
                     blocks.append(new Block());
-                    blocks.last()->setPixmap(QPixmap(":/images/block_steel_01.png"));
+                    blocks.last()->setPixmap(QPixmap(":/images/Textures/block_steel_01.png"));
                     blocks.last()->setPos(block_x_coord, block_y_coord);
 
                 }
@@ -110,7 +110,7 @@ Player* LevelManager::load(std::string level_name, QGraphicsScene * scene)
                 {
 
                     blocks.append(new Block());
-                    blocks.last()->setPixmap(QPixmap(":/images/block_steel_02.png"));
+                    blocks.last()->setPixmap(QPixmap(":/images/Textures/block_steel_02.png"));
                     blocks.last()->setPos(block_x_coord, block_y_coord);
 
                 }
@@ -118,7 +118,7 @@ Player* LevelManager::load(std::string level_name, QGraphicsScene * scene)
                 {
 
                     blocks.append(new Block());
-                    blocks.last()->setPixmap(QPixmap(":/images/block_steel_03.png"));
+                    blocks.last()->setPixmap(QPixmap(":/images/Textures/block_steel_03.png"));
                     blocks.last()->setPos(block_x_coord, block_y_coord);
 
                 }
@@ -126,14 +126,14 @@ Player* LevelManager::load(std::string level_name, QGraphicsScene * scene)
                 {
 
                     blocks.append(new Block());
-                    blocks.last()->setPixmap(QPixmap(":/images/block_pipe_01.png"));
+                    blocks.last()->setPixmap(QPixmap(":/images/Textures/block_pipe_01.png"));
                     blocks.last()->setPos(block_x_coord, block_y_coord);
 
                 }
                 else if(c == 'I')
                 {
                     blocks.append(new Block());
-                    blocks.last()->setPixmap(QPixmap(":/images/block_pipe_02.png"));
+                    blocks.last()->setPixmap(QPixmap(":/images/Textures/block_pipe_02.png"));
                     blocks.last()->setPos(block_x_coord, block_y_coord);
 
                 }
@@ -141,7 +141,7 @@ Player* LevelManager::load(std::string level_name, QGraphicsScene * scene)
                 {
 
                     blocks.append(new Block());
-                    blocks.last()->setPixmap(QPixmap(":/images/block_platform.png"));
+                    blocks.last()->setPixmap(QPixmap(":/images/Textures/block_platform.png"));
                     blocks.last()->setPos(block_x_coord, block_y_coord);
 
                 }
@@ -149,7 +149,7 @@ Player* LevelManager::load(std::string level_name, QGraphicsScene * scene)
                 {
 
                     blocks.append(new Block());
-                    blocks.last()->setPixmap(QPixmap(":/images/block_x_01.png"));
+                    blocks.last()->setPixmap(QPixmap(":/images/Textures/block_x_01.png"));
                     blocks.last()->setPos(block_x_coord, block_y_coord);
 
                 }
