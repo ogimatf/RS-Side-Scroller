@@ -32,10 +32,10 @@ void EnemyPickman::enemyShoot(){
     if(shooting){
         Pickaxe* pickaxe = new Pickaxe(this->getDir());
         if(dir == RIGHT){
-            pickaxe->setPos(pos().x() + boundingRect().width() + 15, pos().y() + boundingRect().height()/3);
+            pickaxe->setPos(pos().x() + boundingRect().width(), pos().y() + boundingRect().height()/3);
         }
         else {
-            pickaxe->setPos(pos().x() - boundingRect().width() - 15, pos().y() + boundingRect().height()/3);
+            pickaxe->setPos(pos().x() - boundingRect().width(), pos().y() + boundingRect().height()/3);
         }
     }
 }

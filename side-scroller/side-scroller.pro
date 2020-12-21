@@ -31,6 +31,7 @@ SOURCES += \
     Player.cpp \
     Projectile.cpp \
     Rocket.cpp \
+    SniperJoeBullet.cpp \
     main.cpp
 
 HEADERS += \
@@ -49,6 +50,7 @@ HEADERS += \
     Player.h \
     Projectile.h \
     Rocket.h \
+    SniperJoeBullet.h \
     Utils.h
 
 # Default rules for deployment.
