@@ -124,11 +124,10 @@ void Entity::advance()
     }
 
     if(y() > Game::instance()->getScene()->sceneRect().height() - boundingRect().height() && !dying)
-        // die();
     {
-        falling = false;
-        setY(450 - boundingRect().height());
+         die();
     }
+
 
     if(dying)
     {

@@ -10,6 +10,7 @@ public:
 
     virtual std::string name(){return "Sniper Joe";}
     virtual void animate();
+    virtual void enemyShoot();
 };
 
 #endif // ENEMYSNIPERJOE_H

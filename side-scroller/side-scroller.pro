@@ -27,6 +27,7 @@ SOURCES += \
     Inert.cpp \
     LevelManager.cpp \
     Object.cpp \
+    Pickaxe.cpp \
     Player.cpp \
     Projectile.cpp \
     Rocket.cpp \
@@ -44,6 +45,7 @@ HEADERS += \
     Inert.h \
     LevelManager.h \
     Object.h \
+    Pickaxe.h \
     Player.h \
     Projectile.h \
     Rocket.h \
