@@ -30,6 +30,15 @@
         <file>Textures/pozadinica.png</file>
         <file>Textures/rocket.png</file>
         <file>Textures/sniperjoe_01.png</file>
+        <file>Textures/pickman_02.png</file>
+        <file>Textures/pickman_03.png</file>
+        <file>Textures/sniperjoe_02.png</file>
+        <file>Textures/sniperjoe_03.png</file>
+        <file>Textures/pick_01.png</file>
+        <file>Textures/pick_02.png</file>
+        <file>Textures/pick_03.png</file>
+        <file>Textures/pick_04.png</file>
+        <file>Textures/sniper_bullet_01.png</file>
     </qresource>
     <qresource prefix="/txt">
         <file>Levels/level.txt</file>

@@ -27,9 +27,11 @@ SOURCES += \
     Inert.cpp \
     LevelManager.cpp \
     Object.cpp \
+    Pickaxe.cpp \
     Player.cpp \
     Projectile.cpp \
     Rocket.cpp \
+    SniperJoeBullet.cpp \
     main.cpp
 
 HEADERS += \
@@ -44,9 +46,11 @@ HEADERS += \
     Inert.h \
     LevelManager.h \
     Object.h \
+    Pickaxe.h \
     Player.h \
     Projectile.h \
     Rocket.h \
+    SniperJoeBullet.h \
     Utils.h
 
 # Default rules for deployment.
