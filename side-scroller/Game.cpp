@@ -56,17 +56,11 @@ void Game::displayMainMenu()
 {
     scene->setBackgroundBrush(QBrush(QImage(":/images/Textures/pozadinica.png")));
 
-    Button* playButton = new Button(QString("PLAY"));
-    int bxPos = this->width()/2 - playButton->boundingRect().width()/2 - 50;
-    int byPos = 75;
-    playButton->setPos(bxPos,byPos);
+    Button* playButton = new Button("start",445,310);
     connect(playButton,SIGNAL(clicked()),this,SLOT(start()));
     scene->addItem(playButton);
 
-    Button* quitButton = new Button(QString("QUIT"));
-    int qxPos = this->width()/2 - quitButton->boundingRect().width()/2 - 50;
-    int qyPos = 150;
-    quitButton->setPos(qxPos,qyPos);
+    Button* quitButton = new Button("quit",445,350);
     connect(quitButton,SIGNAL(clicked()),this,SLOT(close()));
     scene->addItem(quitButton);
 

@@ -1,20 +1,27 @@
 #include "Button.h"
+#include "Game.h"
 #include <QGraphicsTextItem>
 #include <QBrush>
+#include <string>
+#include <iostream>
 
-Button::Button(QString name, QGraphicsItem *parent): QGraphicsRectItem(parent){
-    // draw the rect
-    setRect(0,0,200,50);
-    QBrush brush;
-    brush.setStyle(Qt::SolidPattern);
-    brush.setColor(Qt::darkCyan);
-    setBrush(brush);
+Button::Button(std::string type, int posx, int posy): QGraphicsPixmapItem(0){
 
-    // draw the text
-    text = new QGraphicsTextItem(name,this);
-    int xPos = rect().width()/2 - text->boundingRect().width()/2;
-    int yPos = rect().height()/2 - text->boundingRect().height()/2;
-    text->setPos(xPos,yPos);
+    setShapeMode(QGraphicsPixmapItem::BoundingRectShape);
+
+    name1 = ":/images/Textures/" + type + "_white.png";
+    name2 = ":/images/Textures/" + type + "_yellow.png";
+
+    QString name1_q = QString::fromStdString(name1);
+    QString name2_q = QString::fromStdString(name2);
+
+    texture[0] = QPixmap(name1_q);
+    texture[1] = QPixmap(name2_q);
+
+    setPos(posx,posy);
+    setPixmap(texture[0]);
+
+
 
     // allow responding to hover events
     setAcceptHoverEvents(true);
@@ -22,20 +29,14 @@ Button::Button(QString name, QGraphicsItem *parent): QGraphicsRectItem(parent){
 
 void Button::mousePressEvent(QGraphicsSceneMouseEvent *event){
     emit clicked();
+
 }
 
 void Button::hoverEnterEvent(QGraphicsSceneHoverEvent *event){
-    // change color to cyan
-    QBrush brush;
-    brush.setStyle(Qt::SolidPattern);
-    brush.setColor(Qt::cyan);
-    setBrush(brush);
+    setPixmap(texture[1]);
 }
 
 void Button::hoverLeaveEvent(QGraphicsSceneHoverEvent *event){
-    // change color to dark cyan
-    QBrush brush;
-    brush.setStyle(Qt::SolidPattern);
-    brush.setColor(Qt::darkCyan);
-    setBrush(brush);
+    setPixmap(texture[0]);
+
 }
