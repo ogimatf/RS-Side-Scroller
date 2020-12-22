@@ -26,13 +26,18 @@ void EnemyPickman::animate(){
         setPixmap(texture_shooting[1]);
     }
 
+    if(dir == RIGHT){
+        setPixmap(pixmap().transformed(QTransform().scale(-1,1)));
+    }
+
 }
 
 void EnemyPickman::enemyShoot(){
     if(shooting){
         Pickaxe* pickaxe = new Pickaxe(this->getDir());
         if(dir == RIGHT){
-            pickaxe->setPos(pos().x() + boundingRect().width(), pos().y() + boundingRect().height()/3);
+            // + 5 da sekira ne udara u Pickman-a
+            pickaxe->setPos(pos().x() + boundingRect().width() + 5, pos().y() + boundingRect().height()/3);
         }
         else {
             pickaxe->setPos(pos().x() - boundingRect().width(), pos().y() + boundingRect().height()/3);

@@ -24,7 +24,9 @@ void EnemySniperJoe::animate(){
     {
         setPixmap(texture_shooting[1]);
     }
-
+    if(dir == RIGHT){
+        setPixmap(pixmap().transformed(QTransform().scale(-1,1)));
+    }
 }
 
 void EnemySniperJoe::enemyShoot(){

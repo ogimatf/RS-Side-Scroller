@@ -37,6 +37,7 @@ class Game : public QGraphicsView
         static Game* instance();
 
         QGraphicsScene* getScene(){return scene;}
+        Player* getPlayer(){return player;}
 
         void displayMainMenu();
 

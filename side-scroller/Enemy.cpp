@@ -11,7 +11,7 @@ Enemy::Enemy(): Entity()
     shooting = true;
     moving = false;
     health = 5;
-
+    player_close = false;
 }
 void Enemy::damageEnemy(int damage){
     health -= damage;
@@ -22,11 +22,13 @@ void Enemy::damageEnemy(int damage){
 
 void Enemy::advance(){
 
+    lookForPlayer();
+
     if(!isDead()){
 
         enemy_shooting_interval++;
 
-        if(enemy_shooting_interval > 100){
+        if(enemy_shooting_interval > 100 && player_close){
             enemy_shooting_interval = 0;
             enemyShoot();
         }
@@ -88,3 +90,18 @@ void Enemy::advance(){
     }
 }
 
+void Enemy::lookForPlayer(){
+    if(Game::instance()->getPlayer()->pos().x() > this->x()){
+        dir = RIGHT;
+    }
+    else{
+        dir = LEFT;
+    }
+    if(abs(Game::instance()->getPlayer()->pos().x() - this->x()) < 400 && abs(Game::instance()->getPlayer()->pos().y() - this->y()) < 400){
+        player_close =  true;
+    }
+    else {
+        enemy_shooting_interval = 0;
+        player_close = false;
+    }
+}

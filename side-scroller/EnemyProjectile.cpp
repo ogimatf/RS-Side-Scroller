@@ -18,7 +18,7 @@ void EnemyProjectile::solveCollisions(){
 
         Player* player = dynamic_cast<Player*>(obj);
         if(player && !player->isDead()){
-            player->damagePlayer(this->damage);
+//            player->damagePlayer(this->damage);
         }
         delete this;
         break;
