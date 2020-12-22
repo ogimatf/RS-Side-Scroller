@@ -43,7 +43,7 @@ class Entity : public Object
     public:
 
         Entity();
-
+        int health;
         Direction getDir(){return dir;}
         bool isDead(){return dead;}
         bool isDying(){return dying;}

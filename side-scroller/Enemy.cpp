@@ -2,6 +2,8 @@
 #include <QPixmap>
 
 #include "Pickaxe.h"
+#include "Game.h"
+#include "stdlib.h"
 
 Enemy::Enemy(): Entity()
 {
@@ -9,7 +11,7 @@ Enemy::Enemy(): Entity()
     shooting = true;
     moving = false;
     health = 5;
-    damage = 1;
+
 }
 void Enemy::damageEnemy(int damage){
     health -= damage;
@@ -85,3 +87,4 @@ void Enemy::advance(){
             dead = true;
     }
 }
+

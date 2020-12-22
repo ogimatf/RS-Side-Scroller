@@ -2,9 +2,9 @@
 #define SNIPERJOEBULLET_H
 
 
-#include "Projectile.h"
+#include "EnemyProjectile.h"
 
-class SniperJoeBullet: public Projectile
+class SniperJoeBullet: public EnemyProjectile
 {
 
 public:

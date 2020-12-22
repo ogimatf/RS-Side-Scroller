@@ -5,11 +5,11 @@
 #include "Enemy.h"
 #include <QList>
 
-SniperJoeBullet::SniperJoeBullet(Direction dir) : Projectile()
+SniperJoeBullet::SniperJoeBullet(Direction dir) : EnemyProjectile()
 {
     this->dir = dir;
     speed = 5;
-    damage = 1;
+    damage = 2;
     setPixmap(QPixmap(":/images/Textures/sniper_bullet_01.png"));
 
 }

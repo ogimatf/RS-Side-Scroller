@@ -29,6 +29,7 @@ public:
     void setRunning(bool _runing);
     virtual std::string name(){ return "Mega Man";}
     virtual void animate();
+    virtual void damagePlayer(int damage);
     void jump();
 };
 

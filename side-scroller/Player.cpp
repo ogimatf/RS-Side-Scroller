@@ -9,7 +9,7 @@
 Player::Player(QPoint position) : Entity() {
     moving = false;
     running = false;
-
+    health = 3;
     x = position.x();
     y = position.y();
 
@@ -100,4 +100,11 @@ void Player::setRunning(bool _running) {
         moving_speed *= 2;
     else
         moving_speed /= 2;
+}
+void Player::damagePlayer(int damage){
+    health -= damage;
+
+    if(health <= 0){
+        die();
+    }
 }

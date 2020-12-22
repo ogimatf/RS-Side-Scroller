@@ -1,9 +1,9 @@
 #ifndef PICKAXE_H
 #define PICKAXE_H
 
-#include "Projectile.h"
+#include "EnemyProjectile.h"
 
-class Pickaxe: public Projectile
+class Pickaxe: public EnemyProjectile
 {
 
 public:

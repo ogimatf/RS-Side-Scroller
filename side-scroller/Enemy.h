@@ -7,10 +7,7 @@ class Enemy : public Entity
 {
 public:
     Enemy();
-    int health;
-    int damage;
     int enemy_shooting_interval = 0;
-
 
     virtual std::string name() = 0;
     virtual void enemyShoot() = 0;

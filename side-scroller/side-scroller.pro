@@ -21,6 +21,7 @@ SOURCES += \
     Button.cpp \
     Enemy.cpp \
     EnemyPickman.cpp \
+    EnemyProjectile.cpp \
     EnemySniperJoe.cpp \
     Entity.cpp \
     Game.cpp \
@@ -40,6 +41,7 @@ HEADERS += \
     Button.h \
     Enemy.h \
     EnemyPickman.h \
+    EnemyProjectile.h \
     EnemySniperJoe.h \
     Entity.h \
     Game.h \

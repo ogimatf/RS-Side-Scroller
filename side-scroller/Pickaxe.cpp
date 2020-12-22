@@ -5,7 +5,7 @@
 #include "Enemy.h"
 #include <QList>
 
-Pickaxe::Pickaxe(Direction dir) : Projectile()
+Pickaxe::Pickaxe(Direction dir) : EnemyProjectile()
 {
     this->dir = dir;
     speed = 5;
