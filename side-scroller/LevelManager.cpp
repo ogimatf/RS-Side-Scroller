@@ -8,6 +8,7 @@
 #include <QGradient>
 
 #include "Player.h"
+#include "Babe.h"
 #include "Enemy.h"
 #include "EnemyPickman.h"
 #include "EnemySniperJoe.h"
@@ -50,6 +51,7 @@ Player* LevelManager::load(std::string level_name, QGraphicsScene * scene)
         QList<Block *> blocks;
         QList<Enemy *> enemies;
 
+        Babe* princess = new Babe();
 
 
         while(!in.atEnd()){
@@ -161,8 +163,9 @@ Player* LevelManager::load(std::string level_name, QGraphicsScene * scene)
                     enemies.append(new EnemySniperJoe());
                     enemies.last()->setPos(block_x_coord, block_y_coord - enemies.last()->boundingRect().height());
                 }
-
-
+                else if(c == 'B'){
+                    princess->setPos(block_x_coord, block_y_coord - enemies.last()->boundingRect().height());
+                }
 
                 block_x_coord += block_dim;
             }

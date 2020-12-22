@@ -1,5 +1,6 @@
 #include "Projectile.h"
 #include "Enemy.h"
+#include "Babe.h"
 
 Projectile::Projectile() : Object()
 {
@@ -19,6 +20,10 @@ void Projectile::solveCollisions(){
         Enemy* entity_obj = dynamic_cast<Enemy*>(obj);
         if(entity_obj && !entity_obj->isDead()){
             entity_obj->damageEnemy(this->damage);
+        }
+        Babe* princess_obj = dynamic_cast<Babe*>(obj);
+        if(princess_obj && !princess_obj->isDead()){
+            princess_obj->damageBabe(this->damage);
         }
         delete this;
         break;

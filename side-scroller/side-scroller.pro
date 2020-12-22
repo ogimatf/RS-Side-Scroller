@@ -16,6 +16,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    Babe.cpp \
     Block.cpp \
     Bullet.cpp \
     Button.cpp \
@@ -36,6 +37,7 @@ SOURCES += \
     main.cpp
 
 HEADERS += \
+    Babe.h \
     Block.h \
     Bullet.h \
     Button.h \
