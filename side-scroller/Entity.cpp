@@ -8,6 +8,7 @@ Entity::Entity() : Object()
     moving_speed     = 2;
     jumping_speed    = 2;
     falling_speed    = 2;
+    falling_pp_interval = 0;
 
     dir     = RIGHT;
     moving  = true;
@@ -119,6 +120,12 @@ void Entity::advance()
         prevPos = pos();
 
         setY(y() + falling_speed);
+        //acceleration
+        falling_pp_interval++;
+        if(falling_pp_interval == 15){
+            falling_speed++;
+            falling_pp_interval = 0;
+        }
 
         solveCollisions();
     }
@@ -174,8 +181,11 @@ void Entity::solveCollisions()
         revert = true;
     }
 
-    if(revert)
+    if(revert){
         setPos(prevPos);
+        falling_speed = 2;
+        falling_pp_interval = 0;
+    }
 }
 void Entity::die()
 {

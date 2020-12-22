@@ -30,6 +30,8 @@ class Entity : public Object
 
 
         int falling_speed;
+        int falling_pp_interval;
+
         int death_duration;
 
         int freeze_duration;
