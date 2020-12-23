@@ -129,7 +129,9 @@ void Game::keyPressEvent(QKeyEvent *e)
 
 
     if(e->key() == Qt::Key_R || cur_state == GAME_OVER)
+    {
         reset();
+    }
 
     if(e->key() == Qt::Key_P){
         tooglePause();

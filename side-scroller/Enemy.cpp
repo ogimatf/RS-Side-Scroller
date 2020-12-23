@@ -16,7 +16,8 @@ Enemy::Enemy(): Entity()
 void Enemy::damageEnemy(int damage){
     health -= damage;
     if(health <= 0){
-        dead = true;
+        dying = true;
+        shooting = false;
     }
 }
 
@@ -84,7 +85,7 @@ void Enemy::advance(){
 
     if(dying)
     {
-        death_counter++;
+        death_counter += 5;
         if(death_counter > death_duration)
             dead = true;
     }

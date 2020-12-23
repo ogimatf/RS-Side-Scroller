@@ -10,6 +10,9 @@ public:
 
     QPixmap texture_idle;
     QPixmap texture_shooting[2];
+    QPixmap texture_dying[4];
+
+    int  death_ind = 0;
 
     virtual std::string name(){return "Sniper Joe";}
     virtual void animate();

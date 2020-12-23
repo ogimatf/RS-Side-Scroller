@@ -8,6 +8,10 @@ public:
     Babe();
     bool player_close;
 
+    QPixmap texture_dying[4];
+
+    int  death_ind = 0;
+
     virtual std::string name(){return "Babe";}
     virtual void advance();
     virtual void animate();
