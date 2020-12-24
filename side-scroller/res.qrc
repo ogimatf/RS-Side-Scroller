@@ -64,6 +64,17 @@
         <file>Textures/options_white.png</file>
         <file>Textures/options_yellow.png</file>
         <file>Textures/back_yellow.png</file>
+        <file>Textures/health_bar_10.png</file>
+        <file>Textures/health_bar_00.png</file>
+        <file>Textures/health_bar_01.png</file>
+        <file>Textures/health_bar_02.png</file>
+        <file>Textures/health_bar_03.png</file>
+        <file>Textures/health_bar_04.png</file>
+        <file>Textures/health_bar_05.png</file>
+        <file>Textures/health_bar_06.png</file>
+        <file>Textures/health_bar_07.png</file>
+        <file>Textures/health_bar_08.png</file>
+        <file>Textures/health_bar_09.png</file>
     </qresource>
     <qresource prefix="/txt">
         <file>Levels/level.txt</file>

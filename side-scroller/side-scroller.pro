@@ -26,6 +26,7 @@ SOURCES += \
     EnemySniperJoe.cpp \
     Entity.cpp \
     Game.cpp \
+    HealthBar.cpp \
     Inert.cpp \
     LevelManager.cpp \
     Object.cpp \
@@ -47,6 +48,7 @@ HEADERS += \
     EnemySniperJoe.h \
     Entity.h \
     Game.h \
+    HealthBar.h \
     Inert.h \
     LevelManager.h \
     Object.h \

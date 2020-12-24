@@ -9,7 +9,7 @@
 Player::Player(QPoint position) : Entity() {
     moving = false;
     running = false;
-    health = 3;
+    health = 10;
     x = position.x();
     y = position.y();
 
@@ -43,7 +43,6 @@ Player::Player(QPoint position) : Entity() {
 void Player::jump() {
     if (jumping)
         return;
-
     startJumping();
 }
 

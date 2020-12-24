@@ -8,6 +8,7 @@
 
 #include "Player.h"
 #include "LevelManager.h"
+#include "HealthBar.h"
 
 class Game : public QGraphicsView
 {
@@ -21,6 +22,7 @@ class Game : public QGraphicsView
         Game(QGraphicsView *parent=0);
 
         QGraphicsScene *scene;
+        HealthBar* health_bar;
         Player *player;
         QTimer engine;
         game_state cur_state;

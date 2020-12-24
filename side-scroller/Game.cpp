@@ -115,6 +115,9 @@ void Game::start()
         engine.start();
         player = LevelManager::load("World-1-1", scene);
 
+        health_bar = new HealthBar();
+
+
         if(!player)
         {
             scene->setBackgroundBrush(QBrush(Qt::red));
@@ -237,8 +240,11 @@ void Game::keyReleaseEvent(QKeyEvent *e)
 void Game::advance()
 {
 
+    std::cout << scene->sceneRect().x() << std::endl;
+
     if(cur_state != RUNNING)
         return;
+
 
 
     if(player->isDead())
@@ -278,4 +284,6 @@ void Game::advance()
     }
 
     centerOn(player);
+
+    health_bar->setPos(mapToScene(30,10));
 }
