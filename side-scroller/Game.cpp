@@ -157,7 +157,7 @@ void Game::keyPressEvent(QKeyEvent *e)
         tooglePause();
     }
 
-    if(e->key() == Qt::Key_C){
+    if(e->key() == Qt::Key_Q){
 
         Bullet* bullet = new Bullet(player->getDir());
         if(player->getDir() == RIGHT){
@@ -168,7 +168,7 @@ void Game::keyPressEvent(QKeyEvent *e)
         }
         player->setShooting(true);
     }
-    if(e->key() == Qt::Key_V){
+    if(e->key() == Qt::Key_W){
 
         Rocket* rocket = new Rocket(player->getDir());
         if(player->getDir() == RIGHT){
@@ -201,7 +201,7 @@ void Game::keyPressEvent(QKeyEvent *e)
         player->jump();
     }
 
-    if(e->key() == Qt::Key_Z){
+    if(e->key() == Qt::Key_Shift){
 
         player->setRunning(true);
     }
@@ -220,15 +220,15 @@ void Game::keyReleaseEvent(QKeyEvent *e)
     if(e->key() == Qt::Key_Right || e->key() == Qt::Key_Left)
         player->setMoving(false);
 
-    if(e->key() == Qt::Key_Z)
+    if(e->key() == Qt::Key_Shift)
         player->setRunning(false);
 
-    if(e->key() == Qt::Key_C)
+    if(e->key() == Qt::Key_Q)
     {
         player->setShooting(false);
     }
 
-    if(e->key() == Qt::Key_V)
+    if(e->key() == Qt::Key_W)
     {
         player->setShooting(false);
     }

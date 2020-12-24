@@ -68,5 +68,7 @@
     <qresource prefix="/txt">
         <file>Levels/level.txt</file>
     </qresource>
-    <qresource prefix="/audio"/>
+    <qresource prefix="/audio">
+        <file>Sounds/MenuSelect.wav</file>
+    </qresource>
 </RCC>
