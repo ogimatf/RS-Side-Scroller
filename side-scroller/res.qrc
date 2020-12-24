@@ -59,6 +59,11 @@
         <file>Textures/babe_death_03.png</file>
         <file>Textures/babe_death_04.png</file>
         <file>Textures/spike_01.png</file>
+        <file>Textures/back_white.png</file>
+        <file>Textures/options.png</file>
+        <file>Textures/options_white.png</file>
+        <file>Textures/options_yellow.png</file>
+        <file>Textures/back_yellow.png</file>
     </qresource>
     <qresource prefix="/txt">
         <file>Levels/level.txt</file>

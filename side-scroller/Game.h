@@ -39,7 +39,8 @@ class Game : public QGraphicsView
         QGraphicsScene* getScene(){return scene;}
         Player* getPlayer(){return player;}
 
-        void displayMainMenu();
+
+
 
     public slots:
 
@@ -56,6 +57,10 @@ class Game : public QGraphicsView
         void start();
 
         void gameover();
+
+        void displayOptions();
+
+        void displayMainMenu();
 
 };
 

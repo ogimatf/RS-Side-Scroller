@@ -51,16 +51,35 @@ Game::Game(QGraphicsView *parent) : QGraphicsView(parent)
 
 }
 
+void Game::displayOptions()
+{
+    scene->clear();
+    scene->setBackgroundBrush(QBrush(QImage(":/images/Textures/options.png")));
+
+
+    Button* backButton = new Button("back",10,530);
+    connect(backButton,SIGNAL(clicked()),this,SLOT(displayMainMenu()));
+    scene->addItem(backButton);
+
+
+}
+
 
 void Game::displayMainMenu()
 {
+
+    scene->clear();
     scene->setBackgroundBrush(QBrush(QImage(":/images/Textures/pozadinica.png")));
 
     Button* playButton = new Button("start",445,310);
     connect(playButton,SIGNAL(clicked()),this,SLOT(start()));
     scene->addItem(playButton);
 
-    Button* quitButton = new Button("quit",445,350);
+    Button* optionsButton = new Button("options",414,340);
+    connect(optionsButton,SIGNAL(clicked()),this,SLOT(displayOptions()));
+    scene->addItem(optionsButton);
+
+    Button* quitButton = new Button("quit",445,375);
     connect(quitButton,SIGNAL(clicked()),this,SLOT(close()));
     scene->addItem(quitButton);
 
