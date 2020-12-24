@@ -155,6 +155,15 @@ Player* LevelManager::load(std::string level_name, QGraphicsScene * scene)
                     blocks.last()->setPos(block_x_coord, block_y_coord);
 
                 }
+                else if(c == 'A')
+                {
+
+                    blocks.append(new Block());
+                    blocks.last()->setLeathal(true);
+                    blocks.last()->setPixmap(QPixmap(":/images/Textures/spike_01.png"));
+                    blocks.last()->setPos(block_x_coord, block_y_coord);
+
+                }
                 else if(c == 'Q'){
                     enemies.append(new EnemyPickman());
                     enemies.last()->setPos(block_x_coord, block_y_coord - enemies.last()->boundingRect().height());

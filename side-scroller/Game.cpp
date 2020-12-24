@@ -68,6 +68,7 @@ void Game::displayMainMenu()
 
 void Game::reset()
 {
+
     cur_state = READY;
     player = 0;
     engine.stop();

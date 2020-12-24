@@ -91,7 +91,7 @@ void Entity::advance()
     {
         prevPos = pos();
 
-        setY(y() - jumping_speed);
+        setY(y() - jumping_speed * 1.5);
 
         jump_counter += jumping_speed;
 
@@ -161,6 +161,10 @@ void Entity::solveCollisions()
 
         if(coll_dir == DOWN && falling && obj->isWalkable())
         {
+            if(obj->isLeathal()){
+                die();
+            }
+
             falling = false;
             walkable_object = obj;
         }
