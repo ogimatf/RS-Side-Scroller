@@ -161,27 +161,31 @@ void Game::keyPressEvent(QKeyEvent *e)
     }
 
     if(e->key() == Qt::Key_Q){
-
-        Bullet* bullet = new Bullet(player->getDir());
-        if(player->getDir() == RIGHT){
-            bullet->setPos(player->pos().x() + player->boundingRect().width() + 15, player->pos().y() + player->boundingRect().height()/3);
+        if(player->bullet_interval > 20){
+            player->bullet_interval = 0;
+            Bullet* bullet = new Bullet(player->getDir());
+            if(player->getDir() == RIGHT){
+                bullet->setPos(player->pos().x() + player->boundingRect().width() + 15, player->pos().y() + player->boundingRect().height()/3);
+            }
+            else {
+                bullet->setPos(player->pos().x() - bullet->boundingRect().width() - 15, player->pos().y() + player->boundingRect().height()/3);
+            }
+            player->setShooting(true);
         }
-        else {
-            bullet->setPos(player->pos().x() - bullet->boundingRect().width() - 15, player->pos().y() + player->boundingRect().height()/3);
-        }
-        player->setShooting(true);
     }
     if(e->key() == Qt::Key_W){
+        if(player->rocket_interval > 60){
+            player->rocket_interval = 0;
+            Rocket* rocket = new Rocket(player->getDir());
+            if(player->getDir() == RIGHT){
+                rocket->setPos(player->pos().x() + player->boundingRect().width() + 15, player->pos().y() + player->boundingRect().height()/3);
+            }
+            else {
+                rocket->setPos(player->pos().x() - rocket->boundingRect().width() - 15, player->pos().y() + player->boundingRect().height()/3);
+            }
 
-        Rocket* rocket = new Rocket(player->getDir());
-        if(player->getDir() == RIGHT){
-            rocket->setPos(player->pos().x() + player->boundingRect().width() + 15, player->pos().y() + player->boundingRect().height()/3);
+            player->setShooting(true);
         }
-        else {
-            rocket->setPos(player->pos().x() - rocket->boundingRect().width() - 15, player->pos().y() + player->boundingRect().height()/3);
-        }
-
-        player->setShooting(true);
     }
 
     if(e->key() == Qt::Key_Escape)
@@ -240,7 +244,6 @@ void Game::keyReleaseEvent(QKeyEvent *e)
 void Game::advance()
 {
 
-    std::cout << scene->sceneRect().x() << std::endl;
 
     if(cur_state != RUNNING)
         return;
@@ -258,6 +261,9 @@ void Game::advance()
         player->advance();
         return;
     }
+
+    player->bullet_interval++;
+    player->rocket_interval++;
 
     for(auto & item : scene->items())
     {

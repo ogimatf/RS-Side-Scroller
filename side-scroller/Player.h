@@ -24,6 +24,9 @@ public:
     Player(QPoint position);
 
     int x, y;
+    int bullet_interval;
+    int rocket_interval;
+
 //    QGraphicsPixmapItem* rect;
 
     void setRunning(bool _runing);
