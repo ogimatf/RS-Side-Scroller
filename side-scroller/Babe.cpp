@@ -39,7 +39,10 @@ void Babe::animate(){
 
         setPixmap(texture_dying[death_ind]);
     }
-
+    if(player_close){
+        setPixmap(QPixmap(":/images/Textures/sniperjoe_01.png"));
+        //  Game over
+    }
 
     if(dir == RIGHT)
     {
@@ -115,7 +118,7 @@ void Babe::lookForPlayer(){
     else{
         dir = LEFT;
     }
-    if(abs(Game::instance()->getPlayer()->pos().x() - this->x()) < 400 && abs(Game::instance()->getPlayer()->pos().y() - this->y()) < 400){
+    if(abs(Game::instance()->getPlayer()->pos().x() - this->x()) < 50 && abs(Game::instance()->getPlayer()->pos().y() - this->y()) < 50){
         player_close =  true;
     }
     else {
