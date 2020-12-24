@@ -5,11 +5,13 @@ Object::Object() : QGraphicsPixmapItem(0)
 {
     collidable = true;
     walkable   = false;
+    leathal = false;
 
     setShapeMode(QGraphicsPixmapItem::BoundingRectShape);
 
     Game::instance()->getScene()->addItem(this);
 }
+
 Direction Object::touchingDirection(Object* item)
 {
     QRectF curr_rect =  sceneBoundingRect();
@@ -72,4 +74,9 @@ Direction Object::collisionDirection(Object* item)
         else
             return DOWN;
     }
+}
+
+void Object::setLeathal(bool leat){
+
+    this->leathal = leat;
 }
