@@ -21,10 +21,13 @@ SOURCES += \
     Bullet.cpp \
     Button.cpp \
     Enemy.cpp \
+    EnemyFinalBoss.cpp \
     EnemyPickman.cpp \
     EnemyProjectile.cpp \
     EnemySniperJoe.cpp \
     Entity.cpp \
+    FinalBossBullet1.cpp \
+    FinalBossBullet2.cpp \
     Game.cpp \
     HealthBar.cpp \
     Inert.cpp \
@@ -43,10 +46,13 @@ HEADERS += \
     Bullet.h \
     Button.h \
     Enemy.h \
+    EnemyFinalBoss.h \
     EnemyPickman.h \
     EnemyProjectile.h \
     EnemySniperJoe.h \
     Entity.h \
+    FinalBossBullet1.h \
+    FinalBossBullet2.h \
     Game.h \
     HealthBar.h \
     Inert.h \

@@ -12,6 +12,7 @@
 #include "Enemy.h"
 #include "EnemyPickman.h"
 #include "EnemySniperJoe.h"
+#include "EnemyFinalBoss.h"
 
 #include "LevelManager.h"
 #include "Block.h"
@@ -30,7 +31,7 @@ Player* LevelManager::load(std::string level_name, QGraphicsScene * scene)
         scene->setBackgroundBrush(QBrush(QColor(31,0,164)));
 
         player = new Player(QPoint(350, 350));
-        player->setPos(100, 100);
+        player->setPos(238*32, 77*32);
 
         QFile myfile(":/txt/Levels/level.txt");
 
@@ -174,6 +175,10 @@ Player* LevelManager::load(std::string level_name, QGraphicsScene * scene)
                 }
                 else if(c == 'B'){
                     princess->setPos(block_x_coord, block_y_coord - enemies.last()->boundingRect().height());
+                }
+                else if (c == 'F'){
+                    enemies.append(new EnemyFinalBoss());
+                    enemies.last()->setPos(block_x_coord, block_y_coord - enemies.last()->boundingRect().height());
                 }
 
                 block_x_coord += block_dim;

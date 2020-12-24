@@ -19,7 +19,7 @@ void EnemyProjectile::solveCollisions(){
 
         Player* player = dynamic_cast<Player*>(obj);
         if(player && !player->isDead()){
-            player->damagePlayer(this->damage);
+        //    player->damagePlayer(this->damage);
         }
         Babe* princess_obj = dynamic_cast<Babe*>(obj);
         if(princess_obj && !princess_obj->isDead()){
