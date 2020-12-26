@@ -5,7 +5,7 @@
 #include <QGradient>
 #include <QImage>
 #include <QBrush>
-#include <QSound>
+#include <QMediaPlayer>
 
 #include "Game.h"
 #include "Object.h"
@@ -16,6 +16,9 @@
 #include "Bullet.h"
 #include "Rocket.h"
 #include <iostream>
+
+QSound main_menu_music(":/audio/Sounds/MegamanMainMenu.wav");
+QSound game_music(":/audio/Sounds/MegamanLevel1.wav");
 
 // Singleton design pattern
 Game* Game::uniqueInstance = 0;
@@ -49,7 +52,6 @@ Game::Game(QGraphicsView *parent) : QGraphicsView(parent)
     this->setFixedWidth(1024);
     this->setFixedHeight(576);
 
-
 }
 
 void Game::displayOptions()
@@ -71,6 +73,11 @@ void Game::displayMainMenu()
 
     scene->clear();
     scene->setBackgroundBrush(QBrush(QImage(":/images/Textures/pozadinica.png")));
+
+    // main menu music
+    main_menu_music.setLoops(-1);
+    main_menu_music.play();
+
 
     Button* playButton = new Button("start",445,310);
     connect(playButton, SIGNAL(clicked()), this, SLOT(start()));
@@ -94,6 +101,7 @@ void Game::reset()
     engine.stop();
     scene->clear();
     centerOn(0,0);
+    game_music.stop();
     displayMainMenu();
 
 }
@@ -116,6 +124,10 @@ void Game::start()
         engine.start();
         player = LevelManager::load("World-1-1", scene);
         QSound::play(":/audio/Sounds/GameStart.wav");
+
+        main_menu_music.stop();
+        game_music.setLoops(-1);
+        game_music.play();
 
         health_bar = new HealthBar();
 
