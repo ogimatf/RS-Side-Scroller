@@ -6,6 +6,7 @@
 #include <QImage>
 #include <QBrush>
 #include <QMediaPlayer>
+#include <QGraphicsPixmapItem>
 
 #include "Game.h"
 #include "Object.h"
@@ -52,6 +53,8 @@ Game::Game(QGraphicsView *parent) : QGraphicsView(parent)
     this->setFixedWidth(1024);
     this->setFixedHeight(576);
 
+    pause_screen = new QGraphicsPixmapItem();
+    pause_screen->setPixmap(QPixmap(":/images/Textures/pause_01.png"));
 }
 
 void Game::displayOptions()
@@ -131,7 +134,6 @@ void Game::start()
 
         health_bar = new HealthBar();
 
-
         if(!player)
         {
             scene->setBackgroundBrush(QBrush(Qt::red));
@@ -146,13 +148,20 @@ void Game::start()
 
 void Game::tooglePause()
 {
+
     if(cur_state == RUNNING)
     {
+        scene->addItem(pause_screen);
+        pause_screen->setPos(mapToScene(0,0));
+        pause_screen->setZValue(5);
+
         engine.stop();
         cur_state = PAUSE;
     }
     else if(cur_state == PAUSE)
     {
+        scene->removeItem(pause_screen);
+
         engine.start();
         cur_state = RUNNING;
     }
