@@ -13,10 +13,10 @@ EnemyFinalBoss::EnemyFinalBoss() : Enemy()
     texture_shooting_fireball[1]    = QPixmap(":/images/Textures/finalboss_shoot_01.png");
     texture_shooting_firewave[0]    = QPixmap(":/images/Textures/finalboss_shoot_02.png");
     texture_shooting_firewave[1]    = QPixmap(":/images/Textures/finalboss_shoot_03.png");
-    texture_dying[0]                = QPixmap(":/images/Textures/sniperjoe_death_01.png");
-    texture_dying[1]                = QPixmap(":/images/Textures/sniperjoe_death_02.png");
-    texture_dying[2]                = QPixmap(":/images/Textures/sniperjoe_death_03.png");
-    texture_dying[3]                = QPixmap(":/images/Textures/sniperjoe_death_04.png");
+    texture_dying[0]                = QPixmap(":/images/Textures/finalboss_death_00.png");
+    texture_dying[1]                = QPixmap(":/images/Textures/finalboss_death_01.png");
+    texture_dying[2]                = QPixmap(":/images/Textures/finalboss_death_02.png");
+    texture_dying[3]                = QPixmap(":/images/Textures/finalboss_death_03.png");
 
     setPixmap(texture_idle[0]);
 }
@@ -41,15 +41,6 @@ void EnemyFinalBoss::animate(){
     else
         wave_animation_index = 1;
 
-
-    if(!shooting)
-        setPixmap(texture_idle[fire_animation_index]);
-    else if(shooting && shooting_style == 1)
-        setPixmap(texture_shooting_fireball[fire_animation_index]);
-    else if(shooting && shooting_style == 2)
-        setPixmap(texture_shooting_firewave[wave_animation_index]);
-
-    /*
     if(dying || dead)
     {
         if(death_counter > 25 && death_counter < 50)
@@ -58,6 +49,18 @@ void EnemyFinalBoss::animate(){
             death_ind = 2;
         else if(death_counter > 75)
             death_ind = 3;
+
+        setPixmap(texture_dying[death_ind]);
+    }
+    else if(!shooting)
+        setPixmap(texture_idle[fire_animation_index]);
+    else if(shooting && shooting_style == 1)
+        setPixmap(texture_shooting_fireball[fire_animation_index]);
+    else if(shooting && shooting_style == 2)
+        setPixmap(texture_shooting_firewave[wave_animation_index]);
+
+    /*
+
 
    */
 }

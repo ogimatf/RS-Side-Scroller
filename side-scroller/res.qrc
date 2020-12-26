@@ -86,6 +86,10 @@
         <file>Textures/firewave_00.png</file>
         <file>Textures/firewave_01.png</file>
         <file>Textures/firewave_02.png</file>
+        <file>Textures/finalboss_death_00.png</file>
+        <file>Textures/finalboss_death_01.png</file>
+        <file>Textures/finalboss_death_02.png</file>
+        <file>Textures/finalboss_death_03.png</file>
     </qresource>
     <qresource prefix="/txt">
         <file>Levels/level.txt</file>

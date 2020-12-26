@@ -93,7 +93,7 @@ void Enemy::advance(){
 
     if(dying)
     {
-        death_counter += 5;
+        death_counter += 4;
         if(death_counter > death_duration)
             dead = true;
     }
