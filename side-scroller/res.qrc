@@ -91,6 +91,7 @@
         <file>Textures/finalboss_death_02.png</file>
         <file>Textures/finalboss_death_03.png</file>
         <file>Textures/background.png</file>
+        <file>Textures/pause_01.png</file>
     </qresource>
     <qresource prefix="/txt">
         <file>Levels/level.txt</file>
@@ -106,5 +107,9 @@
         <file>Sounds/EnemyShoot.wav</file>
         <file>Sounds/MegamanLand.wav</file>
         <file>Sounds/GameStart.wav</file>
+        <file>Sounds/MegamanBossTheme.wav</file>
+        <file>Sounds/MegamanLevel1.wav</file>
+        <file>Sounds/MegamanMainMenu.wav</file>
+        <file>Sounds/MegamanVictory.wav</file>
     </qresource>
 </RCC>

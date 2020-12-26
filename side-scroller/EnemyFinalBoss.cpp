@@ -66,6 +66,7 @@ void EnemyFinalBoss::animate(){
 }
 
 void EnemyFinalBoss::enemyShoot(){
+
     if(shooting){
         fire_counter++;
         shooting_style = fire_counter % 11 < 7 ? 1 : 2;

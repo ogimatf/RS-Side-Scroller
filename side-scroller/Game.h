@@ -4,6 +4,8 @@
 #include <QGraphicsView>
 #include <QGraphicsScene>
 #include <QTimer>
+#include <QMediaPlayer>
+#include <QGraphicsPixmapItem>
 
 
 #include "Player.h"
@@ -27,6 +29,7 @@ class Game : public QGraphicsView
         QTimer engine;
         game_state cur_state;
 
+        QGraphicsPixmapItem *pause_screen;
 
     protected:
 
