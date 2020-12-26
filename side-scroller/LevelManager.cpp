@@ -27,11 +27,11 @@ Player* LevelManager::load(std::string level_name, QGraphicsScene * scene)
     if(level_name == "World-1-1")
     {
 
-        //scene->setBackgroundBrush(QBrush(QImage(":/images/nebo.jpg")));
-        scene->setBackgroundBrush(QBrush(QColor(31,0,164)));
+        scene->setBackgroundBrush(QBrush(QImage(":/images/Textures/background.png")));
+//        scene->setBackgroundBrush(QBrush(QColor(31,0,164)));
 
         player = new Player(QPoint(350, 350));
-        player->setPos(238, 77);
+        player->setPos(100, 77);
 
         QFile myfile(":/txt/Levels/level.txt");
 

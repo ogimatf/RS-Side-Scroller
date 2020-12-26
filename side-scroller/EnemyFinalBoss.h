@@ -8,13 +8,16 @@ class EnemyFinalBoss : public Enemy
 public:
     EnemyFinalBoss();
 
-    QPixmap texture_idle;
-    QPixmap texture_shooting[2];
+    QPixmap texture_idle[2];
+    QPixmap texture_shooting_fireball[2];
+    QPixmap texture_shooting_firewave[2];
     QPixmap texture_dying[4];
 
     int death_ind = 0;
     int fire_counter = 0;
-    int invulnerable = false;
+    int shooting_style = 1;
+
+    bool invulnerable = false;
 
     virtual std::string name(){return "Final Boss";}
     virtual void animate();

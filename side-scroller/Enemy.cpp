@@ -9,7 +9,7 @@
 Enemy::Enemy(): Entity()
 {
     dir = LEFT;
-    shooting = true;
+    shooting = false;
     moving = false;
     health = 5;
     player_close = false;
@@ -33,6 +33,7 @@ void Enemy::advance(){
     if(!isDead()){
 
         enemy_shooting_interval++;
+        enemy_animation_interval++;
 
         if(enemy_shooting_interval > 100 && player_close){
             enemy_shooting_interval = 0;
@@ -92,7 +93,7 @@ void Enemy::advance(){
 
     if(dying)
     {
-        death_counter += 5;
+        death_counter += 4;
         if(death_counter > death_duration)
             dead = true;
     }
@@ -107,9 +108,11 @@ void Enemy::lookForPlayer(){
     }
     if(abs(Game::instance()->getPlayer()->pos().x() - this->x()) < 400 && abs(Game::instance()->getPlayer()->pos().y() - this->y()) < 400){
         player_close =  true;
+        shooting = true;
     }
     else {
         enemy_shooting_interval = 0;
         player_close = false;
+        shooting = false;
     }
 }

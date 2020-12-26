@@ -9,6 +9,7 @@ class Enemy : public Entity
 public:
     Enemy();
     int enemy_shooting_interval = 0;
+    int enemy_animation_interval = 0;
     bool player_close;
 
     virtual std::string name() = 0;
