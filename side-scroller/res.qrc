@@ -75,6 +75,17 @@
         <file>Textures/health_bar_07.png</file>
         <file>Textures/health_bar_08.png</file>
         <file>Textures/health_bar_09.png</file>
+        <file>Textures/finalboss_idle_00.png</file>
+        <file>Textures/finalboss_idle_01.png</file>
+        <file>Textures/finalboss_shoot_00.png</file>
+        <file>Textures/finalboss_shoot_01.png</file>
+        <file>Textures/finalboss_shoot_02.png</file>
+        <file>Textures/finalboss_shoot_03.png</file>
+        <file>Textures/fire_ball_00.png</file>
+        <file>Textures/fire_ball_01.png</file>
+        <file>Textures/firewave_00.png</file>
+        <file>Textures/firewave_01.png</file>
+        <file>Textures/firewave_02.png</file>
     </qresource>
     <qresource prefix="/txt">
         <file>Levels/level.txt</file>

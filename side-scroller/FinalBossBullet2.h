@@ -8,10 +8,10 @@ class FinalBossBullet2: public EnemyProjectile
 
 public:
     FinalBossBullet2(Direction dir);
+    QPixmap texture[3];
+    int animation_interval = 0;
 
-    int animation_parameter = 0;
-
-    virtual std::string name(){return "Pickaxe";}
+    virtual std::string name(){return "Firewave";}
 
     virtual void animate();
     virtual void advance();
