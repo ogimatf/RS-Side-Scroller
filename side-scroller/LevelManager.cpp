@@ -31,7 +31,7 @@ Player* LevelManager::load(std::string level_name, QGraphicsScene * scene)
         scene->setBackgroundBrush(QBrush(QColor(31,0,164)));
 
         player = new Player(QPoint(350, 350));
-        player->setPos(238*32, 77*32);
+        player->setPos(238, 77);
 
         QFile myfile(":/txt/Levels/level.txt");
 

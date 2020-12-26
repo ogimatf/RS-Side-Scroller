@@ -81,5 +81,14 @@
     </qresource>
     <qresource prefix="/audio">
         <file>Sounds/MenuSelect.wav</file>
+        <file>Sounds/MegaShoot.wav</file>
+        <file>Sounds/EnemyDamage.wav</file>
+        <file>Sounds/MegamanDamage.wav</file>
+        <file>Sounds/MegamanDie.wav</file>
+        <file>Sounds/MegamanRocket.wav</file>
+        <file>Sounds/Pause.wav</file>
+        <file>Sounds/EnemyShoot.wav</file>
+        <file>Sounds/MegamanLand.wav</file>
+        <file>Sounds/GameStart.wav</file>
     </qresource>
 </RCC>

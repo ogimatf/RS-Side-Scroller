@@ -2,6 +2,7 @@
 #include "Game.h"
 #include "Enemy.h"
 #include <QList>
+#include <QSound>
 
 Entity::Entity() : Object()
 {
@@ -37,6 +38,7 @@ void Entity::startJumping()
 {
     if(!falling && !jumping)
     {
+        QSound::play(":/audio/Sounds/MegamanLand.wav");
         walkable_object = 0;
         jumping = true;
     }
@@ -122,7 +124,8 @@ void Entity::advance()
 
     if(y() > Game::instance()->getScene()->sceneRect().height() - boundingRect().height() && !dying)
     {
-         die();
+        QSound::play(":/audio/Sounds/MegamanDie.wav");
+        die();
     }
 
 
@@ -162,6 +165,7 @@ void Entity::solveCollisions()
         if(coll_dir == DOWN && falling && obj->isWalkable())
         {
             if(obj->isLeathal()){
+                QSound::play(":/audio/Sounds/MegamanDie.wav");
                 die();
             }
 

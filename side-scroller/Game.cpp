@@ -5,6 +5,7 @@
 #include <QGradient>
 #include <QImage>
 #include <QBrush>
+#include <QSound>
 
 #include "Game.h"
 #include "Object.h"
@@ -57,8 +58,8 @@ void Game::displayOptions()
     scene->setBackgroundBrush(QBrush(QImage(":/images/Textures/options.png")));
 
 
-    Button* backButton = new Button("back",10,530);
-    connect(backButton,SIGNAL(clicked()),this,SLOT(displayMainMenu()));
+    Button* backButton = new Button("back", 10, 530);
+    connect(backButton, SIGNAL(clicked()), this, SLOT(displayMainMenu()));
     scene->addItem(backButton);
 
 
@@ -72,15 +73,15 @@ void Game::displayMainMenu()
     scene->setBackgroundBrush(QBrush(QImage(":/images/Textures/pozadinica.png")));
 
     Button* playButton = new Button("start",445,310);
-    connect(playButton,SIGNAL(clicked()),this,SLOT(start()));
+    connect(playButton, SIGNAL(clicked()), this, SLOT(start()));
     scene->addItem(playButton);
 
     Button* optionsButton = new Button("options",414,340);
-    connect(optionsButton,SIGNAL(clicked()),this,SLOT(displayOptions()));
+    connect(optionsButton, SIGNAL(clicked()), this, SLOT(displayOptions()));
     scene->addItem(optionsButton);
 
     Button* quitButton = new Button("quit",445,375);
-    connect(quitButton,SIGNAL(clicked()),this,SLOT(close()));
+    connect(quitButton, SIGNAL(clicked()), this, SLOT(close()));
     scene->addItem(quitButton);
 
 }
@@ -114,6 +115,7 @@ void Game::start()
         scene->clear();
         engine.start();
         player = LevelManager::load("World-1-1", scene);
+        QSound::play(":/audio/Sounds/GameStart.wav");
 
         health_bar = new HealthBar();
 
@@ -148,20 +150,29 @@ void Game::tooglePause()
 void Game::keyPressEvent(QKeyEvent *e)
 {
     if(e->key() == Qt::Key_S && cur_state == READY)
+    {
         start();
-
+    }
 
     if(e->key() == Qt::Key_R || cur_state == GAME_OVER)
     {
         reset();
     }
 
-    if(e->key() == Qt::Key_P){
+    if(e->key() == Qt::Key_P)
+    {
+        QSound::play(":audio/Sounds/Pause.wav");
+
         tooglePause();
     }
 
-    if(e->key() == Qt::Key_Q){
+    if(e->key() == Qt::Key_Q)
+    {
+
         if(player->bullet_interval > 20){
+
+            QSound::play(":/audio/Sounds/MegaShoot.wav");
+
             player->bullet_interval = 0;
             Bullet* bullet = new Bullet(player->getDir());
             if(player->getDir() == RIGHT){
@@ -173,8 +184,13 @@ void Game::keyPressEvent(QKeyEvent *e)
             player->setShooting(true);
         }
     }
-    if(e->key() == Qt::Key_W){
+
+    if(e->key() == Qt::Key_W)
+    {
         if(player->rocket_interval > 60){
+
+            QSound::play(":/audio/Sounds/MegamanRocket.wav");
+
             player->rocket_interval = 0;
             Rocket* rocket = new Rocket(player->getDir());
             if(player->getDir() == RIGHT){
@@ -204,7 +220,6 @@ void Game::keyPressEvent(QKeyEvent *e)
 
     if(e->key() == Qt::Key_Space)
     {
-
         player->jump();
     }
 
@@ -214,6 +229,7 @@ void Game::keyPressEvent(QKeyEvent *e)
     }
 
     if(e->key() == Qt::Key_D){
+        QSound::play(":/audio/Sounds/MegamanDie.wav");
         player->die();
     }
 
@@ -243,7 +259,6 @@ void Game::keyReleaseEvent(QKeyEvent *e)
 
 void Game::advance()
 {
-
 
     if(cur_state != RUNNING)
         return;

@@ -4,9 +4,12 @@
 #include <QPen>
 #include <QBrush>
 #include <QPixmap>
+#include <QSound>
 #include <iostream>
 
-Player::Player(QPoint position) : Entity() {
+Player::Player(QPoint position) : Entity()
+{
+
     moving = false;
     running = false;
     health = 10;
@@ -41,8 +44,10 @@ Player::Player(QPoint position) : Entity() {
 }
 
 void Player::jump() {
+
     if (jumping)
         return;
+
     startJumping();
 }
 
@@ -111,9 +116,13 @@ void Player::setRunning(bool _running) {
         moving_speed /= 2;
 }
 void Player::damagePlayer(int damage){
+
+    QSound::play(":/audio/Sounds/MegamanDamage.wav");
+
     health -= damage;
 
     if(health <= 0){
+        QSound::play(":/audio/Sounds/MegamanDie.wav");
         die();
     }
 }
