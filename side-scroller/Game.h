@@ -11,6 +11,7 @@
 #include "Player.h"
 #include "LevelManager.h"
 #include "HealthBar.h"
+#include "Button.h"
 
 class Game : public QGraphicsView
 {
@@ -30,6 +31,17 @@ class Game : public QGraphicsView
         game_state cur_state;
 
         QGraphicsPixmapItem *pause_screen;
+        QGraphicsPixmapItem *death_screen;
+
+        Button *start_button;
+        Button *quit_button;
+        Button *options_button;
+        Button *back_button;
+        Button *main_menu_button;
+        Button *quit_button_2;
+
+        bool screen_used = false;
+
 
     protected:
 

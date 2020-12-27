@@ -92,6 +92,11 @@
         <file>Textures/finalboss_death_03.png</file>
         <file>Textures/background.png</file>
         <file>Textures/pause_01.png</file>
+        <file>Textures/you_died_screen.png</file>
+        <file>Textures/main_menu_white.png</file>
+        <file>Textures/main_menu_yellow.png</file>
+        <file>Textures/qquit_white.png</file>
+        <file>Textures/qquit_yellow.png</file>
     </qresource>
     <qresource prefix="/txt">
         <file>Levels/level.txt</file>

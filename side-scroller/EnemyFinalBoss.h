@@ -1,7 +1,7 @@
 #ifndef ENEMYFINALBOSS_H
 #define ENEMYFINALBOSS_H
 
-#include "Enemy.h";
+#include "Enemy.h"
 
 class EnemyFinalBoss : public Enemy
 {
