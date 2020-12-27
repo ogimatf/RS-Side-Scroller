@@ -40,8 +40,8 @@ void Babe::animate(){
         setPixmap(texture_dying[death_ind]);
     }
     if(player_close){
-        setPixmap(QPixmap(":/images/Textures/sniperjoe_01.png"));
-        //  Game over
+        Game::instance()->getPlayer()->won = true;
+
     }
 
     if(dir == RIGHT)

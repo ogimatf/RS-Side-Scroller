@@ -55,6 +55,10 @@ Game::Game(QGraphicsView *parent) : QGraphicsView(parent)
 
     pause_screen = new QGraphicsPixmapItem();
     pause_screen->setPixmap(QPixmap(":/images/Textures/pause_01.png"));
+
+    death_screen = new QGraphicsPixmapItem();
+
+
 }
 
 void Game::displayOptions()
@@ -63,9 +67,9 @@ void Game::displayOptions()
     scene->setBackgroundBrush(QBrush(QImage(":/images/Textures/options.png")));
 
 
-    Button* backButton = new Button("back", 10, 530);
-    connect(backButton, SIGNAL(clicked()), this, SLOT(displayMainMenu()));
-    scene->addItem(backButton);
+    back_button = new Button("back", 10, 530);
+    connect(back_button, SIGNAL(clicked()), this, SLOT(displayMainMenu()));
+    scene->addItem(back_button);
 
 
 }
@@ -82,17 +86,17 @@ void Game::displayMainMenu()
     main_menu_music.play();
 
 
-    Button* playButton = new Button("start",445,310);
-    connect(playButton, SIGNAL(clicked()), this, SLOT(start()));
-    scene->addItem(playButton);
+    start_button = new Button("start",445,310);
+    connect(start_button, SIGNAL(clicked()), this, SLOT(start()));
+    scene->addItem(start_button);
 
-    Button* optionsButton = new Button("options",414,340);
-    connect(optionsButton, SIGNAL(clicked()), this, SLOT(displayOptions()));
-    scene->addItem(optionsButton);
+    options_button = new Button("options",414,340);
+    connect(options_button, SIGNAL(clicked()), this, SLOT(displayOptions()));
+    scene->addItem(options_button);
 
-    Button* quitButton = new Button("quit",445,375);
-    connect(quitButton, SIGNAL(clicked()), this, SLOT(close()));
-    scene->addItem(quitButton);
+    quit_button = new Button("quit",445,375);
+    connect(quit_button, SIGNAL(clicked()), this, SLOT(close()));
+    scene->addItem(quit_button);
 
 }
 
@@ -114,6 +118,35 @@ void Game::gameover()
 {
     cur_state = GAME_OVER;
     engine.stop();
+
+    death_screen->setPixmap(QPixmap(":/images/Textures/you_died_screen.png"));
+
+    if(screen_used)
+    {
+        scene->removeItem(death_screen);
+        screen_used = false;
+    }
+
+    scene->addItem(death_screen);
+    death_screen->setPos(mapToScene(0,0));
+    death_screen->setZValue(4);
+
+
+    QPointF mm_button_position = mapToScene(390,258);
+    main_menu_button = new Button("main_menu",mm_button_position.x(),mm_button_position.y());
+    connect(main_menu_button, SIGNAL(clicked()), this, SLOT(reset()));
+    main_menu_button->setZValue(5);
+    scene->addItem(main_menu_button);
+
+
+    mm_button_position = mapToScene(460,320);
+    quit_button_2 = new Button("qquit",mm_button_position.x(),mm_button_position.y());
+    connect(quit_button_2, SIGNAL(clicked()), this, SLOT(close()));
+    quit_button_2->setZValue(5);
+    scene->addItem(quit_button_2);
+
+
+    screen_used=true;
 
 
 }
@@ -284,11 +317,22 @@ void Game::advance()
     if(cur_state != RUNNING)
         return;
 
+    if(player->won)
+    {
+        QGraphicsPixmapItem *final_screen = new QGraphicsPixmapItem();
+        final_screen->setPixmap(QPixmap(":/images/Textures/win_screen.png"));
+        scene->addItem(final_screen);
+        final_screen->setPos(mapToScene(0,0));
+        final_screen->setZValue(4);
+        engine.stop();
+
+    }
 
 
     if(player->isDead())
     {
         gameover();
+        return;
     }
 
     if(player->isDying())
