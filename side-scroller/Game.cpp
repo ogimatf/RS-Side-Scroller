@@ -20,6 +20,7 @@
 
 QSound main_menu_music(":/audio/Sounds/MegamanMainMenu.wav");
 QSound game_music(":/audio/Sounds/MegamanLevel1.wav");
+QSound victory_music(":/audio/Sounds/MegamanVictory.wav");
 
 // Singleton design pattern
 Game* Game::uniqueInstance = 0;
@@ -81,11 +82,6 @@ void Game::displayMainMenu()
     scene->clear();
     scene->setBackgroundBrush(QBrush(QImage(":/images/Textures/pozadinica.png")));
 
-    // main menu music
-    main_menu_music.setLoops(-1);
-    main_menu_music.play();
-
-
     start_button = new Button("start",445,310);
     connect(start_button, SIGNAL(clicked()), this, SLOT(start()));
     scene->addItem(start_button);
@@ -109,6 +105,11 @@ void Game::reset()
     scene->clear();
     centerOn(0,0);
     game_music.stop();
+
+    // main menu music
+    main_menu_music.setLoops(-1);
+    main_menu_music.play();
+
     displayMainMenu();
 
 }
@@ -319,6 +320,9 @@ void Game::advance()
 
     if(player->won)
     {
+        game_music.stop();
+        victory_music.play();
+
         QGraphicsPixmapItem *final_screen = new QGraphicsPixmapItem();
         final_screen->setPixmap(QPixmap(":/images/Textures/win_screen.png"));
         scene->addItem(final_screen);
