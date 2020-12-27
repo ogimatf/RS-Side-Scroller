@@ -97,6 +97,7 @@
         <file>Textures/main_menu_yellow.png</file>
         <file>Textures/qquit_white.png</file>
         <file>Textures/qquit_yellow.png</file>
+        <file>Textures/win_screen.png</file>
     </qresource>
     <qresource prefix="/txt">
         <file>Levels/level.txt</file>

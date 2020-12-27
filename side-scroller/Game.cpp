@@ -317,6 +317,16 @@ void Game::advance()
     if(cur_state != RUNNING)
         return;
 
+    if(player->won)
+    {
+        QGraphicsPixmapItem *final_screen = new QGraphicsPixmapItem();
+        final_screen->setPixmap(QPixmap(":/images/Textures/win_screen.png"));
+        scene->addItem(final_screen);
+        final_screen->setPos(mapToScene(0,0));
+        final_screen->setZValue(4);
+        engine.stop();
+
+    }
 
 
     if(player->isDead())

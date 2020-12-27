@@ -27,6 +27,8 @@ public:
     int bullet_interval;
     int rocket_interval;
 
+    bool won = false;
+
 //    QGraphicsPixmapItem* rect;
 
     void setRunning(bool _runing);
