@@ -2,6 +2,7 @@
 #define ENTITY_H
 
 #include "Object.h"
+#include <QSound>
 
 class Entity : public Object
 {
@@ -30,6 +31,8 @@ class Entity : public Object
 
 
         int falling_speed;
+        int falling_pp_interval;
+
         int death_duration;
 
         int freeze_duration;
@@ -43,7 +46,7 @@ class Entity : public Object
     public:
 
         Entity();
-
+        int health;
         Direction getDir(){return dir;}
         bool isDead(){return dead;}
         bool isDying(){return dying;}

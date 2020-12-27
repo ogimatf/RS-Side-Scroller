@@ -4,10 +4,14 @@
 #include <QGraphicsView>
 #include <QGraphicsScene>
 #include <QTimer>
+#include <QMediaPlayer>
+#include <QGraphicsPixmapItem>
 
 
 #include "Player.h"
 #include "LevelManager.h"
+#include "HealthBar.h"
+#include "Button.h"
 
 class Game : public QGraphicsView
 {
@@ -21,9 +25,22 @@ class Game : public QGraphicsView
         Game(QGraphicsView *parent=0);
 
         QGraphicsScene *scene;
+        HealthBar* health_bar;
         Player *player;
         QTimer engine;
         game_state cur_state;
+
+        QGraphicsPixmapItem *pause_screen;
+        QGraphicsPixmapItem *death_screen;
+
+        Button *start_button;
+        Button *quit_button;
+        Button *options_button;
+        Button *back_button;
+        Button *main_menu_button;
+        Button *quit_button_2;
+
+        bool screen_used = false;
 
 
     protected:
@@ -37,8 +54,10 @@ class Game : public QGraphicsView
         static Game* instance();
 
         QGraphicsScene* getScene(){return scene;}
+        Player* getPlayer(){return player;}
 
-        void displayMainMenu();
+
+
 
     public slots:
 
@@ -55,6 +74,10 @@ class Game : public QGraphicsView
         void start();
 
         void gameover();
+
+        void displayOptions();
+
+        void displayMainMenu();
 
 };
 

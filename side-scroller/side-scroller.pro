@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -16,37 +16,53 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    Babe.cpp \
     Block.cpp \
     Bullet.cpp \
     Button.cpp \
     Enemy.cpp \
+    EnemyFinalBoss.cpp \
     EnemyPickman.cpp \
+    EnemyProjectile.cpp \
     EnemySniperJoe.cpp \
     Entity.cpp \
+    FinalBossBullet1.cpp \
+    FinalBossBullet2.cpp \
     Game.cpp \
+    HealthBar.cpp \
     Inert.cpp \
     LevelManager.cpp \
     Object.cpp \
+    Pickaxe.cpp \
     Player.cpp \
     Projectile.cpp \
     Rocket.cpp \
+    SniperJoeBullet.cpp \
     main.cpp
 
 HEADERS += \
+    Babe.h \
     Block.h \
     Bullet.h \
     Button.h \
     Enemy.h \
+    EnemyFinalBoss.h \
     EnemyPickman.h \
+    EnemyProjectile.h \
     EnemySniperJoe.h \
     Entity.h \
+    FinalBossBullet1.h \
+    FinalBossBullet2.h \
     Game.h \
+    HealthBar.h \
     Inert.h \
     LevelManager.h \
     Object.h \
+    Pickaxe.h \
     Player.h \
     Projectile.h \
     Rocket.h \
+    SniperJoeBullet.h \
     Utils.h
 
 # Default rules for deployment.

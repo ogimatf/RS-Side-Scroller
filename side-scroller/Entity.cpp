@@ -2,12 +2,14 @@
 #include "Game.h"
 #include "Enemy.h"
 #include <QList>
+#include <QSound>
 
 Entity::Entity() : Object()
 {
     moving_speed     = 2;
     jumping_speed    = 2;
     falling_speed    = 2;
+    falling_pp_interval = 0;
 
     dir     = RIGHT;
     moving  = true;
@@ -36,6 +38,7 @@ void Entity::startJumping()
 {
     if(!falling && !jumping)
     {
+        QSound::play(":/audio/Sounds/MegamanLand.wav");
         walkable_object = 0;
         jumping = true;
     }
@@ -65,16 +68,6 @@ void Entity::advance()
             return;
     }
 
-    Enemy* enemy_obj = dynamic_cast<Enemy*>(this);
-    if(enemy_obj && !(enemy_obj->isDead())){
-
-        enemy_obj->enemy_shooting_interval++;
-
-        if(enemy_obj->enemy_shooting_interval > 100){
-            enemy_obj->enemy_shooting_interval = 0;
-            enemy_obj->enemyShoot();
-        }
-    }
 
     // moving
     if(moving)
@@ -100,7 +93,7 @@ void Entity::advance()
     {
         prevPos = pos();
 
-        setY(y() - jumping_speed);
+        setY(y() - jumping_speed * 1.5);
 
         jump_counter += jumping_speed;
 
@@ -119,20 +112,26 @@ void Entity::advance()
         prevPos = pos();
 
         setY(y() + falling_speed);
+        //acceleration
+        falling_pp_interval++;
+        if(falling_pp_interval == 15){
+            falling_speed++;
+            falling_pp_interval = 0;
+        }
 
         solveCollisions();
     }
 
     if(y() > Game::instance()->getScene()->sceneRect().height() - boundingRect().height() && !dying)
-        // die();
     {
-        falling = false;
-        setY(450 - boundingRect().height());
+        QSound::play(":/audio/Sounds/MegamanDie.wav");
+        die();
     }
+
 
     if(dying)
     {
-        death_counter++;
+        death_counter += 3;
         if(death_counter > death_duration)
             dead = true;
     }
@@ -165,6 +164,11 @@ void Entity::solveCollisions()
 
         if(coll_dir == DOWN && falling && obj->isWalkable())
         {
+            if(obj->isLeathal()){
+                QSound::play(":/audio/Sounds/MegamanDie.wav");
+                die();
+            }
+
             falling = false;
             walkable_object = obj;
         }
@@ -175,8 +179,11 @@ void Entity::solveCollisions()
         revert = true;
     }
 
-    if(revert)
+    if(revert){
         setPos(prevPos);
+        falling_speed = 2;
+        falling_pp_interval = 0;
+    }
 }
 void Entity::die()
 {

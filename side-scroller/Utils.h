@@ -3,7 +3,7 @@
 
 enum Direction {UNKNOWN, RIGHT, LEFT, UP, DOWN};
 
-static Direction inverse(Direction dir)
+/*static Direction inverse(Direction dir)
 {
     if(dir == RIGHT)
         return LEFT;
@@ -15,6 +15,6 @@ static Direction inverse(Direction dir)
         return UP;
     else
         return UNKNOWN;
-}
+}*/
 
 #endif // UTILS_H

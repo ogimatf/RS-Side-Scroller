@@ -16,6 +16,7 @@ Bullet::Bullet(Direction dir) : Projectile()
 void Bullet::animate(){
 
 }
+
 void Bullet::advance(){
 
     if( dir == LEFT){

@@ -4,12 +4,15 @@
 #include <QPen>
 #include <QBrush>
 #include <QPixmap>
+#include <QSound>
 #include <iostream>
 
-Player::Player(QPoint position) : Entity() {
+Player::Player(QPoint position) : Entity()
+{
+
     moving = false;
     running = false;
-
+    health = 10;
     x = position.x();
     y = position.y();
 
@@ -19,12 +22,14 @@ Player::Player(QPoint position) : Entity() {
     setZValue(3);
 
     texture_stand          = QPixmap(":/images/Textures/megaman_idle.png");
-    texture_jump           = QPixmap(":/images/Textures/megaman_jump.png");
+    texture_jump[0]        = QPixmap(":/images/Textures/megaman_jump.png");
+    texture_jump[1]        = QPixmap(":/images/Textures/megaman_fall.png");
     texture_walk[0]        = QPixmap(":/images/Textures/megaman_run_01.png");
     texture_walk[1]        = QPixmap(":/images/Textures/megaman_run_02.png");
     texture_walk[2]        = QPixmap(":/images/Textures/megaman_run_03.png");
     texture_stand_shoot    = QPixmap(":/images/Textures/megaman_idle_shoot.png");
-    texture_jump_shoot     = QPixmap(":/images/Textures/megaman_jumpshoot.png");
+    texture_jump_shoot[0]  = QPixmap(":/images/Textures/megaman_jumpshoot.png");
+    texture_jump_shoot[1]  = QPixmap(":/images/Textures/megaman_fallshoot.png");
     texture_walk_shoot[0]  = QPixmap(":/images/Textures/megaman_runshoot_01.png");
     texture_walk_shoot[1]  = QPixmap(":/images/Textures/megaman_runshoot_02.png");
     texture_walk_shoot[2]  = QPixmap(":/images/Textures/megaman_runshoot_03.png");
@@ -39,6 +44,7 @@ Player::Player(QPoint position) : Entity() {
 }
 
 void Player::jump() {
+
     if (jumping)
         return;
 
@@ -65,13 +71,21 @@ void Player::animate() {
     {
         setPixmap(texture_walk_shoot[(walk_counter++/(running ? running_div : walk_div))%3]);
     }
-    else if((jumping || falling) && !shooting)
+    else if(jumping && !shooting)
     {
-            setPixmap(texture_jump);
+            setPixmap(texture_jump[1]);
     }
-    else if((jumping || falling) && shooting)
+    else if(falling && !shooting)
     {
-        setPixmap(texture_jump_shoot);
+            setPixmap(texture_jump[0]);
+    }
+    else if(jumping  && shooting)
+    {
+        setPixmap(texture_jump_shoot[0]);
+    }
+    else if(falling  && shooting)
+    {
+        setPixmap(texture_jump_shoot[1]);
     }
     else if(shooting)
     {
@@ -100,4 +114,15 @@ void Player::setRunning(bool _running) {
         moving_speed *= 2;
     else
         moving_speed /= 2;
+}
+void Player::damagePlayer(int damage){
+
+    QSound::play(":/audio/Sounds/MegamanDamage.wav");
+
+    health -= damage;
+
+    if(health <= 0){
+        QSound::play(":/audio/Sounds/MegamanDie.wav");
+        die();
+    }
 }

@@ -30,9 +30,92 @@
         <file>Textures/pozadinica.png</file>
         <file>Textures/rocket.png</file>
         <file>Textures/sniperjoe_01.png</file>
+        <file>Textures/pickman_02.png</file>
+        <file>Textures/pickman_03.png</file>
+        <file>Textures/sniperjoe_02.png</file>
+        <file>Textures/sniperjoe_03.png</file>
+        <file>Textures/pick_01.png</file>
+        <file>Textures/pick_02.png</file>
+        <file>Textures/pick_03.png</file>
+        <file>Textures/pick_04.png</file>
+        <file>Textures/sniper_bullet_01.png</file>
+        <file>Textures/quit_white.png</file>
+        <file>Textures/quit_yellow.png</file>
+        <file>Textures/start_white.png</file>
+        <file>Textures/start_yellow.png</file>
+        <file>Textures/sniperjoe_death_01.png</file>
+        <file>Textures/sniperjoe_death_02.png</file>
+        <file>Textures/sniperjoe_death_03.png</file>
+        <file>Textures/sniperjoe_death_04.png</file>
+        <file>Textures/megaman_fall.png</file>
+        <file>Textures/megaman_fallshoot.png</file>
+        <file>Textures/babe.png</file>
+        <file>Textures/pickman_death_01.png</file>
+        <file>Textures/pickman_death_02.png</file>
+        <file>Textures/pickman_death_03.png</file>
+        <file>Textures/pickman_death_04.png</file>
+        <file>Textures/babe_death_01.png</file>
+        <file>Textures/babe_death_02.png</file>
+        <file>Textures/babe_death_03.png</file>
+        <file>Textures/babe_death_04.png</file>
+        <file>Textures/spike_01.png</file>
+        <file>Textures/back_white.png</file>
+        <file>Textures/options.png</file>
+        <file>Textures/options_white.png</file>
+        <file>Textures/options_yellow.png</file>
+        <file>Textures/back_yellow.png</file>
+        <file>Textures/health_bar_10.png</file>
+        <file>Textures/health_bar_00.png</file>
+        <file>Textures/health_bar_01.png</file>
+        <file>Textures/health_bar_02.png</file>
+        <file>Textures/health_bar_03.png</file>
+        <file>Textures/health_bar_04.png</file>
+        <file>Textures/health_bar_05.png</file>
+        <file>Textures/health_bar_06.png</file>
+        <file>Textures/health_bar_07.png</file>
+        <file>Textures/health_bar_08.png</file>
+        <file>Textures/health_bar_09.png</file>
+        <file>Textures/finalboss_idle_00.png</file>
+        <file>Textures/finalboss_idle_01.png</file>
+        <file>Textures/finalboss_shoot_00.png</file>
+        <file>Textures/finalboss_shoot_01.png</file>
+        <file>Textures/finalboss_shoot_02.png</file>
+        <file>Textures/finalboss_shoot_03.png</file>
+        <file>Textures/fire_ball_00.png</file>
+        <file>Textures/fire_ball_01.png</file>
+        <file>Textures/firewave_00.png</file>
+        <file>Textures/firewave_01.png</file>
+        <file>Textures/firewave_02.png</file>
+        <file>Textures/finalboss_death_00.png</file>
+        <file>Textures/finalboss_death_01.png</file>
+        <file>Textures/finalboss_death_02.png</file>
+        <file>Textures/finalboss_death_03.png</file>
+        <file>Textures/background.png</file>
+        <file>Textures/pause_01.png</file>
+        <file>Textures/you_died_screen.png</file>
+        <file>Textures/main_menu_white.png</file>
+        <file>Textures/main_menu_yellow.png</file>
+        <file>Textures/qquit_white.png</file>
+        <file>Textures/qquit_yellow.png</file>
+        <file>Textures/win_screen.png</file>
     </qresource>
     <qresource prefix="/txt">
         <file>Levels/level.txt</file>
     </qresource>
-    <qresource prefix="/audio"/>
+    <qresource prefix="/audio">
+        <file>Sounds/MenuSelect.wav</file>
+        <file>Sounds/MegaShoot.wav</file>
+        <file>Sounds/EnemyDamage.wav</file>
+        <file>Sounds/MegamanDamage.wav</file>
+        <file>Sounds/MegamanDie.wav</file>
+        <file>Sounds/MegamanRocket.wav</file>
+        <file>Sounds/Pause.wav</file>
+        <file>Sounds/EnemyShoot.wav</file>
+        <file>Sounds/MegamanLand.wav</file>
+        <file>Sounds/GameStart.wav</file>
+        <file>Sounds/MegamanBossTheme.wav</file>
+        <file>Sounds/MegamanLevel1.wav</file>
+        <file>Sounds/MegamanMainMenu.wav</file>
+        <file>Sounds/MegamanVictory.wav</file>
+    </qresource>
 </RCC>

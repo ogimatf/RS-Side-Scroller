@@ -8,9 +8,11 @@
 #include <QGradient>
 
 #include "Player.h"
+#include "Babe.h"
 #include "Enemy.h"
 #include "EnemyPickman.h"
 #include "EnemySniperJoe.h"
+#include "EnemyFinalBoss.h"
 
 #include "LevelManager.h"
 #include "Block.h"
@@ -25,11 +27,11 @@ Player* LevelManager::load(std::string level_name, QGraphicsScene * scene)
     if(level_name == "World-1-1")
     {
 
-        //scene->setBackgroundBrush(QBrush(QImage(":/images/nebo.jpg")));
-        scene->setBackgroundBrush(QBrush(QColor(31,0,164)));
+        scene->setBackgroundBrush(QBrush(QImage(":/images/Textures/background.png")));
+//        scene->setBackgroundBrush(QBrush(QColor(31,0,164)));
 
         player = new Player(QPoint(350, 350));
-        player->setPos(100, 100);
+        player->setPos(100, 77);
 
         QFile myfile(":/txt/Levels/level.txt");
 
@@ -50,6 +52,7 @@ Player* LevelManager::load(std::string level_name, QGraphicsScene * scene)
         QList<Block *> blocks;
         QList<Enemy *> enemies;
 
+        Babe* princess = new Babe();
 
 
         while(!in.atEnd()){
@@ -153,6 +156,15 @@ Player* LevelManager::load(std::string level_name, QGraphicsScene * scene)
                     blocks.last()->setPos(block_x_coord, block_y_coord);
 
                 }
+                else if(c == 'A')
+                {
+
+                    blocks.append(new Block());
+                    blocks.last()->setLeathal(true);
+                    blocks.last()->setPixmap(QPixmap(":/images/Textures/spike_01.png"));
+                    blocks.last()->setPos(block_x_coord, block_y_coord);
+
+                }
                 else if(c == 'Q'){
                     enemies.append(new EnemyPickman());
                     enemies.last()->setPos(block_x_coord, block_y_coord - enemies.last()->boundingRect().height());
@@ -161,8 +173,13 @@ Player* LevelManager::load(std::string level_name, QGraphicsScene * scene)
                     enemies.append(new EnemySniperJoe());
                     enemies.last()->setPos(block_x_coord, block_y_coord - enemies.last()->boundingRect().height());
                 }
-
-
+                else if(c == 'B'){
+                    princess->setPos(block_x_coord, block_y_coord - enemies.last()->boundingRect().height());
+                }
+                else if (c == 'F'){
+                    enemies.append(new EnemyFinalBoss());
+                    enemies.last()->setPos(block_x_coord, block_y_coord - enemies.last()->boundingRect().height());
+                }
 
                 block_x_coord += block_dim;
             }

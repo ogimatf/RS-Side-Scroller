@@ -11,6 +11,7 @@ class Object : public QGraphicsPixmapItem
 
         bool walkable;
         bool collidable;
+        bool leathal;
 
     public:
 
@@ -18,7 +19,9 @@ class Object : public QGraphicsPixmapItem
 
         bool isWalkable()   {return walkable;  }
         bool isCollidable() {return collidable;}
+        bool isLeathal()    {return leathal;   }
 
+        void setLeathal(bool leat);
 
         virtual std::string name() = 0;
 

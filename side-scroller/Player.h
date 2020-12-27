@@ -12,9 +12,9 @@ protected:
 
     QPixmap texture_walk[3];
     QPixmap texture_stand;
-    QPixmap texture_jump;
+    QPixmap texture_jump[2];
     QPixmap texture_stand_shoot;
-    QPixmap texture_jump_shoot;
+    QPixmap texture_jump_shoot[2];
     QPixmap texture_walk_shoot[3];
     QPixmap texture_dying[4];
 
@@ -24,11 +24,17 @@ public:
     Player(QPoint position);
 
     int x, y;
+    int bullet_interval;
+    int rocket_interval;
+
+    bool won = false;
+
 //    QGraphicsPixmapItem* rect;
 
     void setRunning(bool _runing);
     virtual std::string name(){ return "Mega Man";}
     virtual void animate();
+    virtual void damagePlayer(int damage);
     void jump();
 };
 
