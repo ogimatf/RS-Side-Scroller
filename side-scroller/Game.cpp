@@ -278,6 +278,11 @@ void Game::keyPressEvent(QKeyEvent *e)
         player->jump();
     }
 
+    if(e->key() == Qt::Key_U)
+    {
+        int direction = player->getDir() == RIGHT ? 1 : -1;
+        player->setPos(player->pos().x() + 10*direction,player->pos().y() - 20);
+    }
     if(e->key() == Qt::Key_Shift){
 
         player->setRunning(true);
