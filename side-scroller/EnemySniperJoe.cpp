@@ -5,7 +5,7 @@
 
 EnemySniperJoe::EnemySniperJoe() : Enemy()
 {
-    health = 10;
+    health = 3;
     texture_idle           = QPixmap(":/images/Textures/sniperjoe_01.png");
     texture_shooting[0]    = QPixmap(":/images/Textures/sniperjoe_02.png");
     texture_shooting[1]    = QPixmap(":/images/Textures/sniperjoe_03.png");
