@@ -3,7 +3,7 @@
 
 EnemyPickman::EnemyPickman() : Enemy()
 {
-    health = 10;
+    health = 4;
     texture_idle        = QPixmap(":/images/Textures/pickman_01.png");
     texture_shooting[0] = QPixmap(":/images/Textures/pickman_02.png");
     texture_shooting[1] = QPixmap(":/images/Textures/pickman_03.png");

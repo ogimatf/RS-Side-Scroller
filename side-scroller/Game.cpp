@@ -18,10 +18,6 @@
 #include "Rocket.h"
 #include <iostream>
 
-QSound main_menu_music(":/audio/Sounds/MegamanMainMenu.wav");
-QSound game_music(":/audio/Sounds/MegamanLevel1.wav");
-QSound victory_music(":/audio/Sounds/MegamanVictory.wav");
-
 // Singleton design pattern
 Game* Game::uniqueInstance = 0;
 Game* Game::instance()
@@ -45,6 +41,13 @@ Game::Game(QGraphicsView *parent) : QGraphicsView(parent)
     // setup game engine
     QObject::connect(&engine, SIGNAL(timeout()), this, SLOT(advance()));
     engine.setInterval(10);
+
+    main_menu_music = new QSound(":/audio/Sounds/MegamanMainMenu.wav");
+    game_music      = new QSound(":/audio/Sounds/MegamanLevel1.wav");
+    victory_music   = new QSound(":/audio/Sounds/MegamanVictory.wav");
+
+    main_menu_music->setLoops(-1);
+    game_music->setLoops(-1);
 
 
     player = 0;
@@ -104,11 +107,10 @@ void Game::reset()
     engine.stop();
     scene->clear();
     centerOn(0,0);
-    game_music.stop();
+    game_music->stop();
 
     // main menu music
-    main_menu_music.setLoops(-1);
-    main_menu_music.play();
+    main_menu_music->play();
 
     displayMainMenu();
 
@@ -162,9 +164,8 @@ void Game::start()
         player = LevelManager::load("World-1-1", scene);
         QSound::play(":/audio/Sounds/GameStart.wav");
 
-        main_menu_music.stop();
-        game_music.setLoops(-1);
-        game_music.play();
+        main_menu_music->stop();
+        game_music->play();
 
         health_bar = new HealthBar();
 
@@ -278,6 +279,11 @@ void Game::keyPressEvent(QKeyEvent *e)
         player->jump();
     }
 
+    if(e->key() == Qt::Key_U)
+    {
+        int direction = player->getDir() == RIGHT ? 1 : -1;
+        player->setPos(player->pos().x() + 10*direction,player->pos().y() - 20);
+    }
     if(e->key() == Qt::Key_Shift){
 
         player->setRunning(true);
@@ -320,8 +326,8 @@ void Game::advance()
 
     if(player->won)
     {
-        game_music.stop();
-        victory_music.play();
+        game_music->stop();
+        victory_music->play();
 
         QGraphicsPixmapItem *final_screen = new QGraphicsPixmapItem();
         final_screen->setPixmap(QPixmap(":/images/Textures/win_screen.png"));
