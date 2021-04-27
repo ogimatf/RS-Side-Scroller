@@ -1,9 +1,9 @@
 #include "FinalBossBullet1.h"
-#include <iostream>
-#include "Game.h"
 #include "Block.h"
 #include "Enemy.h"
+#include "Game.h"
 #include <QList>
+#include <iostream>
 
 FinalBossBullet1::FinalBossBullet1(Direction dir) : EnemyProjectile()
 {

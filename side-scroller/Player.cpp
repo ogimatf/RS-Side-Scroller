@@ -1,8 +1,8 @@
 #include "Player.h"
 #include "Game.h"
 
-#include <QPen>
 #include <QBrush>
+#include <QPen>
 #include <QPixmap>
 //#include <QSound>
 #include <iostream>

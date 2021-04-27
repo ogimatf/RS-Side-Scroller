@@ -4,6 +4,11 @@
 #include <QList>
 //#include <QSound>
 
+const auto v_jumping_duration = 30;
+const auto v_death_duration = 100;
+const auto v_freeze_duration = 80;
+const auto v_falling_pp_interval = 15;
+
 Entity::Entity() : Object()
 {
     moving_speed     = 2;
@@ -27,9 +32,9 @@ Entity::Entity() : Object()
     walk_counter    = 0;
     freeze_counter	= 0;
 
-    jumping_duration = 30;
-    death_duration   = 100;
-    freeze_duration  = 80;
+    jumping_duration = v_jumping_duration;
+    death_duration   = v_death_duration;
+    freeze_duration  = v_freeze_duration;
 
     walkable_object = 0;
 }
@@ -116,7 +121,7 @@ void Entity::advance()
         setY(y() + falling_speed);
         //acceleration
         falling_pp_interval++;
-        if(falling_pp_interval == 15){
+        if(falling_pp_interval == v_falling_pp_interval){
             falling_speed++;
             falling_pp_interval = 0;
         }

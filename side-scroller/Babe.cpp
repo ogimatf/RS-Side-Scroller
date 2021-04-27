@@ -31,15 +31,22 @@ void Babe::animate(){
     if(dying || dead)
     {
         if(death_counter > 25 && death_counter < 50)
-            death_ind = 1;
+        {
+            death_ind = 1;            
+        }
         else if(death_counter > 50 && death_counter < 75)
+        {
             death_ind = 2;
+        }
         else if(death_counter > 75)
+        {
             death_ind = 3;
+        }
 
         setPixmap(texture_dying[death_ind]);
     }
-    if(player_close){
+    if(player_close)
+    {
         Game::instance()->getPlayer()->won = true;
 
     }
@@ -107,7 +114,9 @@ void Babe::advance(){
     {
         death_counter += 3;
         if(death_counter > death_duration)
+        {
             dead = true;
+        }
     }
 }
 
