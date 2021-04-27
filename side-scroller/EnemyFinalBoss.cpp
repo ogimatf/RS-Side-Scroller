@@ -9,13 +9,13 @@ EnemyFinalBoss::EnemyFinalBoss() : Enemy() {
   texture_idle[0] = QPixmap(":/images/Textures/finalboss_idle_00.png");
   texture_idle[1] = QPixmap(":/images/Textures/finalboss_idle_01.png");
   texture_shooting_fireball[0] =
-      QPixmap(":/images/Textures/finalboss_shoot_00.png");
+    QPixmap(":/images/Textures/finalboss_shoot_00.png");
   texture_shooting_fireball[1] =
-      QPixmap(":/images/Textures/finalboss_shoot_01.png");
+    QPixmap(":/images/Textures/finalboss_shoot_01.png");
   texture_shooting_firewave[0] =
-      QPixmap(":/images/Textures/finalboss_shoot_02.png");
+    QPixmap(":/images/Textures/finalboss_shoot_02.png");
   texture_shooting_firewave[1] =
-      QPixmap(":/images/Textures/finalboss_shoot_03.png");
+    QPixmap(":/images/Textures/finalboss_shoot_03.png");
   texture_dying[0] = QPixmap(":/images/Textures/finalboss_death_00.png");
   texture_dying[1] = QPixmap(":/images/Textures/finalboss_death_01.png");
   texture_dying[2] = QPixmap(":/images/Textures/finalboss_death_02.png");

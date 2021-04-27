@@ -11,7 +11,7 @@ Rocket::Rocket(Direction dir) : Projectile() {
     setPixmap(QPixmap(":/images/Textures/rocket.png"));
   } else {
     setPixmap(QPixmap(":/images/Textures/rocket.png")
-                  .transformed(QTransform().scale(-1, 1)));
+                .transformed(QTransform().scale(-1, 1)));
   }
 }
 

@@ -26,7 +26,7 @@ Player *LevelManager::load(std::string level_name, QGraphicsScene *scene) {
   if (level_name == "World-1-1") {
 
     scene->setBackgroundBrush(
-        QBrush(QImage(":/images/Textures/background.png")));
+      QBrush(QImage(":/images/Textures/background.png")));
     //        scene->setBackgroundBrush(QBrush(QColor(31,0,164)));
 
     player = new Player(QPoint(350, 350));
@@ -64,76 +64,76 @@ Player *LevelManager::load(std::string level_name, QGraphicsScene *scene) {
 
 	  blocks.append(new Block());
 	  blocks.last()->setPixmap(
-	      QPixmap(":/images/Textures/block_steel_02.png"));
+	    QPixmap(":/images/Textures/block_steel_02.png"));
 	  blocks.last()->setPos(block_x_coord, block_y_coord);
 
 	} else if (c == '1') {
 
 	  blocks.append(new Block());
 	  blocks.last()->setPixmap(
-	      QPixmap(":/images/Textures/block_rock_01.png"));
+	    QPixmap(":/images/Textures/block_rock_01.png"));
 	  blocks.last()->setPos(block_x_coord, block_y_coord);
 
 	} else if (c == '2') {
 
 	  blocks.append(new Block());
 	  blocks.last()->setPixmap(
-	      QPixmap(":/images/Textures/block_rock_02.png"));
+	    QPixmap(":/images/Textures/block_rock_02.png"));
 	  blocks.last()->setPos(block_x_coord, block_y_coord);
 
 	} else if (c == '3') {
 
 	  blocks.append(new Block());
 	  blocks.last()->setPixmap(
-	      QPixmap(":/images/Textures/block_rock_03.png"));
+	    QPixmap(":/images/Textures/block_rock_03.png"));
 	  blocks.last()->setPos(block_x_coord, block_y_coord);
 
 	} else if (c == '4') {
 
 	  blocks.append(new Block());
 	  blocks.last()->setPixmap(
-	      QPixmap(":/images/Textures/block_rock_04.png"));
+	    QPixmap(":/images/Textures/block_rock_04.png"));
 	  blocks.last()->setPos(block_x_coord, block_y_coord);
 
 	} else if (c == 'S') {
 
 	  blocks.append(new Block());
 	  blocks.last()->setPixmap(
-	      QPixmap(":/images/Textures/block_steel_01.png"));
+	    QPixmap(":/images/Textures/block_steel_01.png"));
 	  blocks.last()->setPos(block_x_coord, block_y_coord);
 
 	} else if (c == 'T') {
 
 	  blocks.append(new Block());
 	  blocks.last()->setPixmap(
-	      QPixmap(":/images/Textures/block_steel_02.png"));
+	    QPixmap(":/images/Textures/block_steel_02.png"));
 	  blocks.last()->setPos(block_x_coord, block_y_coord);
 
 	} else if (c == 'E') {
 
 	  blocks.append(new Block());
 	  blocks.last()->setPixmap(
-	      QPixmap(":/images/Textures/block_steel_03.png"));
+	    QPixmap(":/images/Textures/block_steel_03.png"));
 	  blocks.last()->setPos(block_x_coord, block_y_coord);
 
 	} else if (c == 'P') {
 
 	  blocks.append(new Block());
 	  blocks.last()->setPixmap(
-	      QPixmap(":/images/Textures/block_pipe_01.png"));
+	    QPixmap(":/images/Textures/block_pipe_01.png"));
 	  blocks.last()->setPos(block_x_coord, block_y_coord);
 
 	} else if (c == 'I') {
 	  blocks.append(new Block());
 	  blocks.last()->setPixmap(
-	      QPixmap(":/images/Textures/block_pipe_02.png"));
+	    QPixmap(":/images/Textures/block_pipe_02.png"));
 	  blocks.last()->setPos(block_x_coord, block_y_coord);
 
 	} else if (c == 'L') {
 
 	  blocks.append(new Block());
 	  blocks.last()->setPixmap(
-	      QPixmap(":/images/Textures/block_platform.png"));
+	    QPixmap(":/images/Textures/block_platform.png"));
 	  blocks.last()->setPos(block_x_coord, block_y_coord);
 
 	} else if (c == 'X') {
@@ -153,21 +153,21 @@ Player *LevelManager::load(std::string level_name, QGraphicsScene *scene) {
 	  enemies.append(new EnemyPickman());
 	  enemies.last()->setPos(block_x_coord,
 	                         block_y_coord -
-	                             enemies.last()->boundingRect().height());
+	                           enemies.last()->boundingRect().height());
 	} else if (c == 'R') {
 	  enemies.append(new EnemySniperJoe());
 	  enemies.last()->setPos(block_x_coord,
 	                         block_y_coord -
-	                             enemies.last()->boundingRect().height());
+	                           enemies.last()->boundingRect().height());
 	} else if (c == 'B') {
 	  princess->setPos(block_x_coord,
 	                   block_y_coord -
-	                       enemies.last()->boundingRect().height());
+	                     enemies.last()->boundingRect().height());
 	} else if (c == 'F') {
 	  enemies.append(new EnemyFinalBoss());
 	  enemies.last()->setPos(block_x_coord,
 	                         block_y_coord -
-	                             enemies.last()->boundingRect().height());
+	                           enemies.last()->boundingRect().height());
 	}
 
 	block_x_coord += block_dim;

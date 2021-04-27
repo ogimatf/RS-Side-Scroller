@@ -117,7 +117,7 @@ void Entity::advance() {
   }
 
   if (y() > Game::instance()->getScene()->sceneRect().height() -
-                boundingRect().height() &&
+              boundingRect().height() &&
       !dying) {
     //        QSound::play(":/audio/Sounds/MegamanDie.wav");
     die();

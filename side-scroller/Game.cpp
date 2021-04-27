@@ -125,7 +125,7 @@ void Game::gameover() {
 
   QPointF mm_button_position = mapToScene(390, 258);
   main_menu_button =
-      new Button("main_menu", mm_button_position.x(), mm_button_position.y());
+    new Button("main_menu", mm_button_position.x(), mm_button_position.y());
   connect(main_menu_button, SIGNAL(clicked()), this, SLOT(reset()));
   main_menu_button->setZValue(5);
   scene->addItem(main_menu_button);
@@ -133,7 +133,7 @@ void Game::gameover() {
 
   mm_button_position = mapToScene(460, 320);
   quit_button_2 =
-      new Button("qquit", mm_button_position.x(), mm_button_position.y());
+    new Button("qquit", mm_button_position.x(), mm_button_position.y());
   connect(quit_button_2, SIGNAL(clicked()), this, SLOT(close()));
   quit_button_2->setZValue(5);
   scene->addItem(quit_button_2);

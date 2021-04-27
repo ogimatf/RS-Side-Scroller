@@ -61,11 +61,11 @@ void Player::animate() {
     setPixmap(texture_dying[death_ind]);
   } else if (moving && !jumping && !falling && !shooting) {
     setPixmap(
-        texture_walk[(walk_counter++ / (running ? running_div : walk_div)) %
-                     3]);
+      texture_walk[(walk_counter++ / (running ? running_div : walk_div)) % 3]);
   } else if (moving && !jumping && !falling && shooting) {
-    setPixmap(texture_walk_shoot
-                  [(walk_counter++ / (running ? running_div : walk_div)) % 3]);
+    setPixmap(
+      texture_walk_shoot[(walk_counter++ / (running ? running_div : walk_div)) %
+                         3]);
   } else if (jumping && !shooting) {
     setPixmap(texture_jump[1]);
   } else if (falling && !shooting) {
