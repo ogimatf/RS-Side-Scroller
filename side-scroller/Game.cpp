@@ -42,12 +42,12 @@ Game::Game(QGraphicsView *parent) : QGraphicsView(parent)
     QObject::connect(&engine, SIGNAL(timeout()), this, SLOT(advance()));
     engine.setInterval(10);
 
-    main_menu_music = new QSound(":/audio/Sounds/MegamanMainMenu.wav");
-    game_music      = new QSound(":/audio/Sounds/MegamanLevel1.wav");
-    victory_music   = new QSound(":/audio/Sounds/MegamanVictory.wav");
+//    main_menu_music = new QSound(":/audio/Sounds/MegamanMainMenu.wav");
+//    game_music      = new QSound(":/audio/Sounds/MegamanLevel1.wav");
+//    victory_music   = new QSound(":/audio/Sounds/MegamanVictory.wav");
 
-    main_menu_music->setLoops(-1);
-    game_music->setLoops(-1);
+//    main_menu_music->setLoops(-1);
+//    game_music->setLoops(-1);
 
 
     player = 0;
@@ -107,10 +107,10 @@ void Game::reset()
     engine.stop();
     scene->clear();
     centerOn(0,0);
-    game_music->stop();
+//    game_music->stop();
 
-    // main menu music
-    main_menu_music->play();
+//    // main menu music
+//    main_menu_music->play();
 
     displayMainMenu();
 
@@ -162,10 +162,10 @@ void Game::start()
         scene->clear();
         engine.start();
         player = LevelManager::load("World-1-1", scene);
-        QSound::play(":/audio/Sounds/GameStart.wav");
+//        QSound::play(":/audio/Sounds/GameStart.wav");
 
-        main_menu_music->stop();
-        game_music->play();
+//        main_menu_music->stop();
+//        game_music->play();
 
         health_bar = new HealthBar();
 
@@ -217,7 +217,7 @@ void Game::keyPressEvent(QKeyEvent *e)
 
     if(e->key() == Qt::Key_P)
     {
-        QSound::play(":audio/Sounds/Pause.wav");
+//        QSound::play(":audio/Sounds/Pause.wav");
 
         tooglePause();
     }
@@ -227,7 +227,7 @@ void Game::keyPressEvent(QKeyEvent *e)
 
         if(player->bullet_interval > 20){
 
-            QSound::play(":/audio/Sounds/MegaShoot.wav");
+//            QSound::play(":/audio/Sounds/MegaShoot.wav");
 
             player->bullet_interval = 0;
             Bullet* bullet = new Bullet(player->getDir());
@@ -245,7 +245,7 @@ void Game::keyPressEvent(QKeyEvent *e)
     {
         if(player->rocket_interval > 60){
 
-            QSound::play(":/audio/Sounds/MegamanRocket.wav");
+//            QSound::play(":/audio/Sounds/MegamanRocket.wav");
 
             player->rocket_interval = 0;
             Rocket* rocket = new Rocket(player->getDir());
@@ -290,7 +290,7 @@ void Game::keyPressEvent(QKeyEvent *e)
     }
 
     if(e->key() == Qt::Key_D){
-        QSound::play(":/audio/Sounds/MegamanDie.wav");
+//        QSound::play(":/audio/Sounds/MegamanDie.wav");
         player->die();
     }
 
@@ -326,8 +326,8 @@ void Game::advance()
 
     if(player->won)
     {
-        game_music->stop();
-        victory_music->play();
+//        game_music->stop();
+//        victory_music->play();
 
         QGraphicsPixmapItem *final_screen = new QGraphicsPixmapItem();
         final_screen->setPixmap(QPixmap(":/images/Textures/win_screen.png"));

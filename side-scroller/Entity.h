@@ -2,7 +2,7 @@
 #define ENTITY_H
 
 #include "Object.h"
-#include <QSound>
+//#include <QSound>
 
 class Entity : public Object
 {
