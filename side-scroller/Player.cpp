@@ -4,7 +4,7 @@
 #include <QPen>
 #include <QBrush>
 #include <QPixmap>
-#include <QSound>
+//#include <QSound>
 #include <iostream>
 
 Player::Player(QPoint position) : Entity()
@@ -117,12 +117,12 @@ void Player::setRunning(bool _running) {
 }
 void Player::damagePlayer(int damage){
 
-    QSound::play(":/audio/Sounds/MegamanDamage.wav");
+//    QSound::play(":/audio/Sounds/MegamanDamage.wav");
 
     health -= damage;
 
     if(health <= 0){
-        QSound::play(":/audio/Sounds/MegamanDie.wav");
+//        QSound::play(":/audio/Sounds/MegamanDie.wav");
         die();
     }
 }
