@@ -1,6 +1,5 @@
 #include "Inert.h"
 
-Inert::Inert() : Object()
-{
-    walkable = true;
+Inert::Inert() : Object() {
+  walkable = true;
 }
