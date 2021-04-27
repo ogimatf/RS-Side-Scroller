@@ -1,9 +1,9 @@
 #include "SniperJoeBullet.h"
-#include <iostream>
-#include "Game.h"
 #include "Block.h"
 #include "Enemy.h"
+#include "Game.h"
 #include <QList>
+#include <iostream>
 
 SniperJoeBullet::SniperJoeBullet(Direction dir) : EnemyProjectile()
 {
