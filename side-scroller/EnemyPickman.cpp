@@ -20,11 +20,17 @@ void EnemyPickman::animate(){
     if(dying || dead)
     {
         if(death_counter > 25 && death_counter < 50)
+        {
             death_ind = 1;
+        }
         else if(death_counter > 50 && death_counter < 75)
+        {
             death_ind = 2;
+        }
         else if(death_counter > 75)
+        {
             death_ind = 3;
+        }
 
         setPixmap(texture_dying[death_ind]);
     }

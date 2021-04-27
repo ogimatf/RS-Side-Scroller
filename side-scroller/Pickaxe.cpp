@@ -1,9 +1,9 @@
 #include "Pickaxe.h"
-#include <iostream>
-#include "Game.h"
 #include "Block.h"
 #include "Enemy.h"
+#include "Game.h"
 #include <QList>
+#include <iostream>
 
 Pickaxe::Pickaxe(Direction dir) : EnemyProjectile()
 {
