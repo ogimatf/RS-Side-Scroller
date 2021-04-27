@@ -1,23 +1,23 @@
-#include <QPen>
-#include <QBrush>
-#include <QList>
-#include <QFile>
-#include <QIODevice>
-#include <QString>
-#include <QTextStream>
-#include <QGradient>
-
 #include "Player.h"
 #include "Babe.h"
+#include "Block.h"
 #include "Enemy.h"
+#include "EnemyFinalBoss.h"
 #include "EnemyPickman.h"
 #include "EnemySniperJoe.h"
-#include "EnemyFinalBoss.h"
-
 #include "LevelManager.h"
-#include "Block.h"
-#include <iostream>
+
+#include <QBrush>
+#include <QFile>
+#include <QGradient>
+#include <QIODevice>
+#include <QList>
+#include <QPen>
+#include <QString>
+#include <QTextStream>
+
 #include <fstream>
+#include <iostream>
 #include <string>
 
 Player* LevelManager::load(std::string level_name, QGraphicsScene * scene)
