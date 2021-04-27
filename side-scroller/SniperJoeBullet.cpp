@@ -5,24 +5,19 @@
 #include <QList>
 #include <iostream>
 
-SniperJoeBullet::SniperJoeBullet(Direction dir) : EnemyProjectile()
-{
-    this->dir = dir;
-    speed = 5;
-    damage = 2;
-    setPixmap(QPixmap(":/images/Textures/sniper_bullet_01.png"));
-
+SniperJoeBullet::SniperJoeBullet(Direction dir) : EnemyProjectile() {
+  this->dir = dir;
+  speed = 5;
+  damage = 2;
+  setPixmap(QPixmap(":/images/Textures/sniper_bullet_01.png"));
 }
-void SniperJoeBullet::animate(){
+void SniperJoeBullet::animate() {}
+void SniperJoeBullet::advance() {
 
-}
-void SniperJoeBullet::advance(){
-
-    if( dir == LEFT){
-         setPos(x() - speed, y());
-    }
-    else {
-         setPos(x() + speed, y());
-    }
-    solveCollisions();
+  if (dir == LEFT) {
+    setPos(x() - speed, y());
+  } else {
+    setPos(x() + speed, y());
+  }
+  solveCollisions();
 }
