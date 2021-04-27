@@ -1,7 +1,7 @@
 #ifndef OBJECT_H
 #define OBJECT_H
 
-#include<QGraphicsRectItem>
+#include <QGraphicsRectItem>
 
 #include "Utils.h"
 

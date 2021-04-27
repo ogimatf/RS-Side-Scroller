@@ -28,17 +28,17 @@ Direction Object::touchingDirection(Object* item)
 
         if(xi0 == curr_rect.x())
             return LEFT;
-        else
-            return RIGHT;
+
+        return RIGHT;
     }
 
-    else if(yi0 == yi1 && xi1 > xi0)
+    if(yi0 == yi1 && xi1 > xi0)
     {
 
         if(yi0 == curr_rect.y())
             return UP;
-        else
-            return DOWN;
+        
+        return DOWN;
     }
 
     return UNKNOWN;
@@ -63,17 +63,16 @@ Direction Object::collisionDirection(Object* item)
 
         if(interRect.left() == curr_rect.x())
             return LEFT;
-        else
-            return RIGHT;
+        
+        return RIGHT;
     }
 
-    else
-    {
-        if(interRect.top() == curr_rect.y())
-            return UP;
-        else
-            return DOWN;
-    }
+    
+    if(interRect.top() == curr_rect.y())
+        return UP;
+    
+    return DOWN;
+    
 }
 
 void Object::setLeathal(bool leat){

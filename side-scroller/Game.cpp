@@ -1,18 +1,19 @@
 #include <QApplication>
+#include <QBrush>
+#include <QGradient>
+#include <QGraphicsPixmapItem>
+#include <QImage>
 #include <QKeyEvent>
+#include <QMediaPlayer>
 #include <QScrollBar>
 #include <QThread>
-#include <QGradient>
-#include <QImage>
-#include <QBrush>
-#include <QMediaPlayer>
-#include <QGraphicsPixmapItem>
+
 
 #include "Game.h"
-#include "Object.h"
-#include "Entity.h"
-#include "Player.h"
 #include "Button.h"
+#include "Entity.h"
+#include "Object.h"
+#include "Player.h"
 
 #include "Bullet.h"
 #include "Rocket.h"
