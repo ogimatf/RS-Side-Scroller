@@ -64,8 +64,9 @@ void Entity::advance()
             freezed = false;
             freeze_counter = 0;
         }
-        else
+        else{
             return;
+        }
     }
 
 
@@ -98,8 +99,9 @@ void Entity::advance()
         jump_counter += jumping_speed;
 
 
-        if(jump_counter > jumping_duration)
+        if(jump_counter > jumping_duration){
             endJumping();
+        }
 
         solveCollisions();
     }
@@ -132,15 +134,17 @@ void Entity::advance()
     if(dying)
     {
         death_counter += 3;
-        if(death_counter > death_duration)
+        if(death_counter > death_duration){
             dead = true;
+        }
     }
 }
 
 void Entity::solveCollisions()
 {
-    if(!collidable || dead)
+    if(!collidable || dead){
         return;
+    }
 
 
     QList<QGraphicsItem*> colliding_items = collidingItems();
