@@ -1,6 +1,6 @@
 #include "Enemy.h"
 #include <QPixmap>
-#include <QSound>
+//#include <QSound>
 
 #include "Pickaxe.h"
 #include "Game.h"
@@ -16,7 +16,7 @@ Enemy::Enemy(): Entity()
 }
 void Enemy::damageEnemy(int damage){
 
-    QSound::play(":/audio/Sounds/EnemyDamage.wav");
+//    QSound::play(":/audio/Sounds/EnemyDamage.wav");
 
     health -= damage;
 
@@ -38,7 +38,7 @@ void Enemy::advance(){
         if(enemy_shooting_interval > 100 && player_close){
             enemy_shooting_interval = 0;
 
-            QSound::play(":/audio/Sounds/EnemyShoot.wav");
+//            QSound::play(":/audio/Sounds/EnemyShoot.wav");
             enemyShoot();
         }
     }

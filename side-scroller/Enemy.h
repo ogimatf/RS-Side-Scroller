@@ -2,7 +2,7 @@
 #define ENEMY_H
 
 #include "Entity.h"
-#include <QSound>
+//#include <QSound>
 
 class Enemy : public Entity
 {

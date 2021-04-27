@@ -4,9 +4,9 @@
 #include <QGraphicsView>
 #include <QGraphicsScene>
 #include <QTimer>
-#include <QMediaPlayer>
+//#include <QMediaPlayer>
 #include <QGraphicsPixmapItem>
-#include <QSound>
+//#include <QSound>
 
 
 #include "Player.h"
@@ -30,9 +30,9 @@ class Game : public QGraphicsView
         Player *player;
         QTimer engine;
         game_state cur_state;
-        QSound *main_menu_music;
-        QSound *game_music;
-        QSound *victory_music;
+//        QSound *main_menu_music;
+//        QSound *game_music;
+//        QSound *victory_music;
 
         QGraphicsPixmapItem *pause_screen;
         QGraphicsPixmapItem *death_screen;

@@ -2,7 +2,7 @@
 #include "Game.h"
 #include <QGraphicsTextItem>
 #include <QBrush>
-#include <QSound>
+//#include <QSound>
 #include <string>
 #include <iostream>
 
@@ -29,7 +29,7 @@ Button::Button(std::string type, int posx, int posy): QGraphicsPixmapItem(0){
 }
 
 void Button::mousePressEvent(QGraphicsSceneMouseEvent *event){
-    QSound::play(":/audio/Sounds/MenuSelect.wav");
+//    QSound::play(":/audio/Sounds/MenuSelect.wav");
     emit clicked();
 
 }
