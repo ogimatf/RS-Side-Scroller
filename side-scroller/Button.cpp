@@ -6,7 +6,7 @@
 #include <iostream>
 #include <string>
 
-Button::Button(std::string type, int posx, int posy) : QGraphicsPixmapItem(0) {
+Button::Button(const std::string& type, int posx, int posy) : QGraphicsPixmapItem(0) {
 
   setShapeMode(QGraphicsPixmapItem::BoundingRectShape);
 
