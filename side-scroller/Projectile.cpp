@@ -4,6 +4,9 @@
 
 Projectile::Projectile() : Object() {
   collidable = false;
+  damage = 0;
+  speed = 0;
+  dir = UNKNOWN;
 }
 
 void Projectile::solveCollisions() {

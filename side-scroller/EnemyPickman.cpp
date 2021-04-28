@@ -1,9 +1,8 @@
 #include "EnemyPickman.h"
 #include "Pickaxe.h"
 
-EnemyPickman::EnemyPickman() : Enemy() {
+EnemyPickman::EnemyPickman() : texture_idle(QPixmap(":/images/Textures/pickman_01.png")),Enemy() {
   health = 4;
-  texture_idle = QPixmap(":/images/Textures/pickman_01.png");
   texture_shooting[0] = QPixmap(":/images/Textures/pickman_02.png");
   texture_shooting[1] = QPixmap(":/images/Textures/pickman_03.png");
   texture_dying[0] = QPixmap(":/images/Textures/pickman_death_01.png");
