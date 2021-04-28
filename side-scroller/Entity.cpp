@@ -14,6 +14,7 @@ Entity::Entity() : Object() {
   jumping_speed = 2;
   falling_speed = 2;
   falling_pp_interval = 0;
+  health = 10;
 
   dir = RIGHT;
   moving = true;
