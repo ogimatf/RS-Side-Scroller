@@ -8,7 +8,7 @@
 class Button:public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 public:
-    Button(std::string type,int posx, int posy);
+    Button(const std::string& type,int posx, int posy);
     std::string name1,name2;
     QPixmap texture[2];
 
