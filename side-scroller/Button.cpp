@@ -19,6 +19,8 @@ Button::Button(const std::string& type, int posx, int posy) : QGraphicsPixmapIte
   texture[0] = QPixmap(name1_q);
   texture[1] = QPixmap(name2_q);
 
+  text = nullptr;
+
   setPos(posx, posy);
   setPixmap(texture[0]);
 
