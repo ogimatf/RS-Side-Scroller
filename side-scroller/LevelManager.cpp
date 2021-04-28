@@ -20,10 +20,10 @@
 #include <iostream>
 #include <string>
 
-Player *LevelManager::load(std::string level_name, QGraphicsScene *scene) {
+Player *LevelManager::load(std::string* level_name, QGraphicsScene *scene) {
   Player *player = 0;
 
-  if (level_name == "World-1-1") {
+  if (*level_name == "World-1-1") {
 
     scene->setBackgroundBrush(
       QBrush(QImage(":/images/Textures/background.png")));

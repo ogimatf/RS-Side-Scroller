@@ -147,7 +147,8 @@ void Game::start() {
   if (cur_state == READY) {
     scene->clear();
     engine.start();
-    player = LevelManager::load("World-1-1", scene);
+    std::string level_name = "World-1-1";
+    player = LevelManager::load(&level_name, scene);
     //        QSound::play(":/audio/Sounds/GameStart.wav");
 
     //        main_menu_music->stop();
