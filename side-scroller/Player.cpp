@@ -12,6 +12,8 @@ Player::Player(QPoint position) : Entity() {
   moving = false;
   running = false;
   health = 10;
+  bullet_interval = 0;
+  rocket_interval = 0;
   x = position.x();
   y = position.y();
 
