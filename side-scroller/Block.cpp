@@ -7,4 +7,3 @@ Block::Block() : Inert() {
 }
 
 
-void Block::hit(Object *what, Direction fromDir) {}
