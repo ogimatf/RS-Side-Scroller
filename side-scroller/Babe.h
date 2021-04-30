@@ -10,6 +10,10 @@ public:
 
     QPixmap texture_dying[4];
 
+    int dc_1 = 25;
+    int dc_2 = 50;
+    int dc_3 = 75;
+
     int  death_ind = 0;
 
     virtual std::string name(){return "Babe";}
