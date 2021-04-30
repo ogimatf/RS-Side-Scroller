@@ -1,7 +1,7 @@
 #include "Babe.h"
 #include "Game.h"
 
-Babe::Babe() : Entity() {
+Babe::Babe() {
   dir = LEFT;
   moving = false;
   health = 1;
