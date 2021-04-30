@@ -25,11 +25,11 @@ void Babe::animate() {
   setPixmap(QPixmap(":/images/Textures/babe.png"));
 
   if (dying || dead) {
-    if (death_counter > 25 && death_counter < 50) {
+    if (death_counter > dc_1 && death_counter < dc_2) {
       death_ind = 1;
-    } else if (death_counter > 50 && death_counter < 75) {
+    } else if (death_counter > dc_2 && death_counter < dc_3) {
       death_ind = 2;
-    } else if (death_counter > 75) {
+    } else if (death_counter > dc_3) {
       death_ind = 3;
     }
 
