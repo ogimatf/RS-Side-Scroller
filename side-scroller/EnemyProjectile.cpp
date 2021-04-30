@@ -1,7 +1,11 @@
 #include "EnemyProjectile.h"
 #include "Babe.h"
 #include "Player.h"
-EnemyProjectile::EnemyProjectile() : Projectile() {}
+EnemyProjectile::EnemyProjectile() : Projectile() {
+    speed = 0;
+    damage  = 0;
+    dir = UNKNOWN;
+}
 
 void EnemyProjectile::solveCollisions() {
   QList<QGraphicsItem *> colliding_items = collidingItems();
