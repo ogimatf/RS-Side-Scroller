@@ -6,9 +6,9 @@ Demo:
 
 https://www.youtube.com/watch?v=0VyPoTwVUnQ&ab_channel=TomislavSavatijevic
 
-![image](https://user-images.githubusercontent.com/56790327/143857713-97a7c524-7af3-462f-b80b-a689e8c1f2ec.png)
+![image](https://gitlab.com/matf-bg-ac-rs/course-rs/projects-2020-2021/28-side-scroller/-/wikis/uploads/57e240efe69b8571ca481bfbbb64c081/gif1.gif)
 
-![image](https://user-images.githubusercontent.com/56790327/143857748-d8d58ee6-aad2-49b2-aa81-814cf3c5334d.png)
+![image](https://gitlab.com/matf-bg-ac-rs/course-rs/projects-2020-2021/28-side-scroller/-/wikis/uploads/eb038dd93018bb7733cad6510e2d3de5/gif2.gif)
 
 ## Developers
 
