@@ -8,8 +8,6 @@ https://www.youtube.com/watch?v=0VyPoTwVUnQ&ab_channel=TomislavSavatijevic
 
 ![image](https://gitlab.com/matf-bg-ac-rs/course-rs/projects-2020-2021/28-side-scroller/-/wikis/uploads/57e240efe69b8571ca481bfbbb64c081/gif1.gif)
 
-![image](https://gitlab.com/matf-bg-ac-rs/course-rs/projects-2020-2021/28-side-scroller/-/wikis/uploads/eb038dd93018bb7733cad6510e2d3de5/gif2.gif)
-
 ## Developers
 
 - [Ognjen Stamenković, 64/2017](https://gitlab.com/ogimatf)
